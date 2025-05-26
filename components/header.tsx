@@ -37,7 +37,20 @@ export function Header() {
 
         <div className="flex items-center space-x-4">
           <ModeToggle />
-          <Button className="hidden md:inline-flex">Register Now</Button>
+          {/* <Button className="hidden md:inline-flex">Register Now</Button> */}
+          <Button
+                asChild
+                size="lg"
+                className="text-lg px-8"
+                >
+                <a
+                  href="https://www.ringcentral.com/view_demo.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Register Now
+                </a>
+                </Button>
 
           {/* Mobile Menu Button */}
           <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>

@@ -47,7 +47,7 @@ export function TicketsSection() {
   ]
 
   return (
-    <section id="tickets" className="py-20 md:py-32 bg-muted/50">
+    <section id="tickets" className="p-20 md:p-32 bg-muted/50">
       <div className="container">
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-3xl md:text-5xl font-bold">Get Your Tickets</h2>
