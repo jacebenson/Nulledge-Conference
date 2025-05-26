@@ -12,7 +12,7 @@ interface TimeLeft {
 
 export function CountdownTimer() {
   // Set your conference date here (Year, Month-1, Day, Hour, Minute)
-  const conferenceDate = new Date(2024, 11, 15, 9, 0) // December 15, 2024, 9:00 AM
+  const conferenceDate = new Date(2025, 10, 17, 10, 0) // November 17, 2025, 10:00 AM
 
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 0,

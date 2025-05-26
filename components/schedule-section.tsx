@@ -5,17 +5,17 @@ import { Clock, MapPin } from "lucide-react"
 export function ScheduleSection() {
   const schedule = [
     {
-      day: "Day 1 - December 15",
+      day: "Day 1 - October 17",
       events: [
         {
-          time: "9:00 AM",
+          time: "10:00 AM",
           title: "Registration & Welcome Coffee",
           speaker: "",
           location: "Main Lobby",
           type: "networking",
         },
         {
-          time: "10:00 AM",
+          time: "11:00 AM",
           title: "Opening Keynote: The Future of AI",
           speaker: "Sarah Chen",
           location: "Main Auditorium",
@@ -37,32 +37,32 @@ export function ScheduleSection() {
         },
       ],
     },
-    {
-      day: "Day 2 - December 16",
-      events: [
-        {
-          time: "9:30 AM",
-          title: "Cloud-Native Architecture",
-          speaker: "Emily Watson",
-          location: "Tech Hall B",
-          type: "workshop",
-        },
-        {
-          time: "11:00 AM",
-          title: "Startup Success Stories",
-          speaker: "David Kim",
-          location: "Innovation Stage",
-          type: "panel",
-        },
-        {
-          time: "2:00 PM",
-          title: "Hands-on AI Workshop",
-          speaker: "Sarah Chen",
-          location: "Workshop Room 1",
-          type: "workshop",
-        },
-      ],
-    },
+    // {
+    //   day: "Day 2 - December 16",
+    //   events: [
+    //     {
+    //       time: "9:30 AM",
+    //       title: "Cloud-Native Architecture",
+    //       speaker: "Emily Watson",
+    //       location: "Tech Hall B",
+    //       type: "workshop",
+    //     },
+    //     {
+    //       time: "11:00 AM",
+    //       title: "Startup Success Stories",
+    //       speaker: "David Kim",
+    //       location: "Innovation Stage",
+    //       type: "panel",
+    //     },
+    //     {
+    //       time: "2:00 PM",
+    //       title: "Hands-on AI Workshop",
+    //       speaker: "Sarah Chen",
+    //       location: "Workshop Room 1",
+    //       type: "workshop",
+    //     },
+    //   ],
+    // },
   ]
 
   const getTypeColor = (type: string) => {
@@ -81,7 +81,7 @@ export function ScheduleSection() {
   }
 
   return (
-    <section id="schedule" className="py-20 md:py-32">
+    <section id="schedule" className="p-20 md:p-32">
       <div className="container">
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-3xl md:text-5xl font-bold">Event Schedule</h2>

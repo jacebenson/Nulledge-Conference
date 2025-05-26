@@ -6,7 +6,7 @@ export function AboutSection() {
     {
       icon: Code,
       title: "Cutting-Edge Tech",
-      description: "Explore the latest in AI, blockchain, cloud computing, and emerging technologies.",
+      description: "Explore the latest in AI, Business Rules, UI Builder, and Fluent.",
     },
     {
       icon: Network,
@@ -16,7 +16,7 @@ export function AboutSection() {
     {
       icon: Lightbulb,
       title: "Innovation",
-      description: "Discover breakthrough ideas and solutions shaping the future of technology.",
+      description: "Discover breakthrough ideas and solutions shaping the future of ServiceNow.",
     },
     {
       icon: Rocket,
@@ -26,14 +26,14 @@ export function AboutSection() {
   ]
 
   return (
-    <section id="about" className="py-20 md:py-32">
+    <section id="about" className="p-20 md:p-32">
       <div className="container">
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-3xl md:text-5xl font-bold">About Nulledge</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Nulledge Conference brings together the brightest minds in technology to share knowledge, inspire
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Nulledge Conference brings together the brightest minds in ServiceNow<sup>™</sup> to share knowledge, inspire
             innovation, and shape the future of our digital world.
-          </p>
+            </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

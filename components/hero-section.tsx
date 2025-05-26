@@ -4,7 +4,7 @@ import { Calendar, MapPin, Users } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="relative py-20 md:py-32 overflow-hidden">
+    <section className="relative p-20 md:p-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
       <div className="container relative z-10">
         <div className="text-center space-y-8">
@@ -21,15 +21,15 @@ export function HeroSection() {
           <div className="flex flex-wrap justify-center gap-6 text-sm md:text-base">
             <div className="flex items-center gap-2">
               <Calendar className="h-5 w-5 text-primary" />
-              <span>December 15-17, 2024</span>
+              <span>October 17, 2025</span>
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="h-5 w-5 text-primary" />
-              <span>San Francisco, CA</span>
+              <span>Virtually</span>
             </div>
             <div className="flex items-center gap-2">
               <Users className="h-5 w-5 text-primary" />
-              <span>500+ Attendees</span>
+              <span>300+ Attendees</span>
             </div>
           </div>
 
@@ -40,12 +40,27 @@ export function HeroSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8">
-                Register Now
-              </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8">
-                View Schedule
-              </Button>
+                <Button
+                asChild
+                size="lg"
+                className="text-lg px-8"
+                >
+                <a
+                  href="https://www.ringcentral.com/view_demo.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Register Now
+                </a>
+                </Button>
+                <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="text-lg px-8"
+                >
+                <a href="#schedule">View Schedule</a>
+                </Button>
             </div>
           </div>
         </div>

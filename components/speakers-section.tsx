@@ -35,7 +35,7 @@ export function SpeakersSection() {
   ]
 
   return (
-    <section id="speakers" className="py-20 md:py-32 bg-muted/50">
+    <section id="speakers" className="p-20 md:p-32 bg-muted/50">
       <div className="container">
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-3xl md:text-5xl font-bold">Featured Speakers</h2>
