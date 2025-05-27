@@ -14,7 +14,7 @@ export function Header() {
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-lg">N</span>
+            <img src="/public/nulledge.png" alt="Nulledge Logo" className="h-6 w-6 object-contain" />
           </div>
           <span className="font-bold text-xl">Nulledge</span>
         </Link>

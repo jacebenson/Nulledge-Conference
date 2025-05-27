@@ -11,7 +11,7 @@ export function HeroSection() {
           <div className="space-y-4">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
               Nulledge
-              <span className="block text-primary">Conference 2024</span>
+              <span className="block text-primary">Conference 2025</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
               Join the leading minds in technology for three days of innovation, networking, and cutting-edge insights.

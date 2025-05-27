@@ -6,7 +6,7 @@ export function AboutSection() {
     {
       icon: Code,
       title: "Cutting-Edge Tech",
-      description: "Explore the latest in AI, Business Rules, UI Builder, and Fluent.",
+      description: "Explore the latest in ServiceNow technology and innovations.",
     },
     {
       icon: Network,

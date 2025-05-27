@@ -8,70 +8,81 @@ export function ScheduleSection() {
       day: "Day 1 - October 17",
       events: [
         {
-          time: "10:00 AM",
-          title: "Registration & Welcome Coffee",
-          speaker: "",
-          location: "Main Lobby",
-          type: "networking",
-        },
-        {
-          time: "11:00 AM",
-          title: "Opening Keynote: The Future of AI",
-          speaker: "Sarah Chen",
-          location: "Main Auditorium",
+          time: "10:00 - 10:30 AM",
+          title: "Welcome and Opening Remarks",
+          speaker: "Nulledge Team",
+          location: "Main Session",
           type: "keynote",
         },
         {
-          time: "11:30 AM",
-          title: "Blockchain Revolution in Finance",
-          speaker: "Marcus Rodriguez",
-          location: "Tech Hall A",
+          time: "10:30 - 11:00 AM",
+          title: "Session 1: ",
+          speaker: "Speaker TBD",
+          location: "Main Session",
           type: "talk",
         },
         {
-          time: "1:00 PM",
-          title: "Networking Lunch",
-          speaker: "",
-          location: "Exhibition Hall",
+          time: "11:00 - 11:30 AM",
+          title: "Session 2: ",
+          speaker: "Speaker TBD",
+          location: "Main Session",
+          type: "workshop",
+        },
+        {
+          time: "11:30 - 12:00 PM",
+          title: "Session 3: ",
+          speaker: "Speaker TBD",
+          location: "Main Session",
+          type: "talk",
+        },
+        {
+          time: "12:00 - 1:00 PM",
+          title: "Networking Session: ",
+          speaker: "Group Discussion",
+          location: "Breakout Rooms",
           type: "networking",
+        },
+        {
+          time: "1:00 - 1:30 PM",
+          title: "Session 4: ",
+          speaker: "Speaker TBD",
+          location: "Main Session",
+          type: "workshop",
+        },
+        {
+          time: "1:30 - 2:00 PM",
+          title: "Session 5: ",
+          speaker: "Speaker TBD",
+          location: "Main Session",
+          type: "talk",
+        },
+        {
+          time: "2:00 - 2:30 PM",
+          title: "Session 6: ",
+          speaker: "Speaker TBD",
+          location: "Main Session",
+          type: "workshop",
+        },
+        {
+          time: "2:30 - 3:00 PM",
+          title: "Closing Remarks ",
+          speaker: "Speaker TBD",
+          location: "Main Session",
+          type: "keynote",
         },
       ],
     },
-    // {
-    //   day: "Day 2 - December 16",
-    //   events: [
-    //     {
-    //       time: "9:30 AM",
-    //       title: "Cloud-Native Architecture",
-    //       speaker: "Emily Watson",
-    //       location: "Tech Hall B",
-    //       type: "workshop",
-    //     },
-    //     {
-    //       time: "11:00 AM",
-    //       title: "Startup Success Stories",
-    //       speaker: "David Kim",
-    //       location: "Innovation Stage",
-    //       type: "panel",
-    //     },
-    //     {
-    //       time: "2:00 PM",
-    //       title: "Hands-on AI Workshop",
-    //       speaker: "Sarah Chen",
-    //       location: "Workshop Room 1",
-    //       type: "workshop",
-    //     },
-    //   ],
-    // },
   ]
 
   const getTypeColor = (type: string) => {
     switch (type) {
+      case "introduction":
+        return "bg-yellow-500 text-white"
       case "keynote":
         return "bg-primary text-primary-foreground"
       case "workshop":
         return "bg-green-500 text-white"
-      case "panel":
+      case "talk":
         return "bg-blue-500 text-white"
       case "networking":
         return "bg-orange-500 text-white"

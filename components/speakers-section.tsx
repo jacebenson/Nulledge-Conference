@@ -5,32 +5,32 @@ import Image from "next/image"
 export function SpeakersSection() {
   const speakers = [
     {
-      name: "Sarah Chen",
-      title: "AI Research Director",
+      name: "TBD",
+      title: "TBD",
       company: "TechCorp",
       image: "/placeholder.svg?height=300&width=300",
-      topics: ["Machine Learning", "Neural Networks"],
+      topics: ["ServiceNow", "ServiceNow"],
+    },
+   {
+      name: "TBD",
+      title: "TBD",
+      company: "TechCorp",
+      image: "/placeholder.svg?height=300&width=300",
+      topics: ["ServiceNow", "ServiceNow"],
     },
     {
-      name: "Marcus Rodriguez",
-      title: "Blockchain Architect",
-      company: "CryptoInnovate",
+      name: "TBD",
+      title: "TBD",
+      company: "TechCorp",
       image: "/placeholder.svg?height=300&width=300",
-      topics: ["Blockchain", "DeFi"],
+      topics: ["ServiceNow", "ServiceNow"],
     },
     {
-      name: "Emily Watson",
-      title: "Cloud Solutions Lead",
-      company: "CloudTech",
+      name: "TBD",
+      title: "TBD",
+      company: "TechCorp",
       image: "/placeholder.svg?height=300&width=300",
-      topics: ["Cloud Computing", "DevOps"],
-    },
-    {
-      name: "David Kim",
-      title: "Startup Founder",
-      company: "InnovateLab",
-      image: "/placeholder.svg?height=300&width=300",
-      topics: ["Entrepreneurship", "Innovation"],
+      topics: ["ServiceNow", "ServiceNow"],
     },
   ]
 
