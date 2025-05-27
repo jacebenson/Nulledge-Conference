@@ -12,7 +12,7 @@ export function SpeakersSection() {
       image: "/placeholder.svg?height=300&width=300",
       topics: ["ServiceNow", "ServiceNow"],
     },
-   {
+    {
       name: "TBD",
       title: "TBD",
       company: "TechCorp",
@@ -41,57 +41,57 @@ export function SpeakersSection() {
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-3xl md:text-5xl font-bold">Featured Speakers</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-        Learn from industry experts and thought leaders who are driving innovation and shaping the future of
-        technology.
+            Learn from industry experts and thought leaders who are driving innovation and shaping the future of
+            technology.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {speakers.map((speaker, index) => (
-        <Card key={index} className="overflow-hidden">
-          <CardContent className="p-0">
-            <Image
-          src={speaker.image || "/placeholder.svg"}
-          alt={speaker.name}
-          width={300}
-          height={300}
-          className="w-full h-64 object-cover"
-            />
-            <div className="p-6 space-y-3">
-          <h3 className="text-xl font-semibold">{speaker.name}</h3>
-          <p className="text-muted-foreground">
-            {speaker.title} at {speaker.company}
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {speaker.topics.map((topic, topicIndex) => (
-              <Badge key={topicIndex} variant="secondary">
-            {topic}
-              </Badge>
-            ))}
-          </div>
-            </div>
-          </CardContent>
-        </Card>
+            <Card key={index} className="overflow-hidden">
+              <CardContent className="p-0">
+                <Image
+                  src={speaker.image || "/placeholder.svg"}
+                  alt={speaker.name}
+                  width={300}
+                  height={300}
+                  className="w-full h-64 object-cover"
+                />
+                <div className="p-6 space-y-3">
+                  <h3 className="text-xl font-semibold">{speaker.name}</h3>
+                  <p className="text-muted-foreground">
+                    {speaker.title} at {speaker.company}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {speaker.topics.map((topic, topicIndex) => (
+                      <Badge key={topicIndex} variant="secondary">
+                        {topic}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>
 
       <div className="text-center mb-16 py-16">
-          <h2 className="text-2xl font-bold mb-4">Call for Proposals</h2>
-          <Button
-                asChild
-                size="lg"
-                className="text-lg px-8"
-              >
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSfJx1aIUdkiQc0RLlU0D3ZZIiYO-WJRosxst7s5F5g7FMDzEw/viewform?usp=dialog"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Register Now
-                </a>
-              </Button>
-        </div>
+        <h2 className="text-2xl font-bold mb-4">Call for Proposals</h2>
+        <Button
+          asChild
+          size="lg"
+          className="text-lg px-8"
+        >
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLScMoi3ZWPeSAtDEX4kX1LqkZ2N5thCUJO0AeyFbrJyX9VVlcw/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Register Now
+          </a>
+        </Button>
+      </div>
     </section>
   )
 }

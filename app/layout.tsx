@@ -5,14 +5,21 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
-
+let title = "Nulledge Conference 2025 | Unofficial ServiceNow Conference"
+let description = "Join the leading minds in ServiceNow for a day of innovation, networking, and cutting-edge insights at Nulledge Conference 2025."
 export const metadata: Metadata = {
-  title: "Nulledge Conference 2025 | ServiceNow Conference",
-  description:
-    "Join the leading minds in ServiceNow for a day of innovation, networking, and cutting-edge insights at Nulledge Conference 2025.",
+  title: title,
+  description: description,
   generator: '',
   icons: {
     icon: '/nulledge.png',
+  },
+  openGraph: {
+    title: title,
+    description: description,
+    url: 'https://thenulledge.com',
+    siteName: title,
+    images: [{ url: 'https://thenulledge.com/og.png' }]
   },
 }
 
