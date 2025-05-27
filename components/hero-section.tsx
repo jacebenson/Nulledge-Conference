@@ -40,27 +40,27 @@ export function HeroSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
+              <Button
                 asChild
                 size="lg"
                 className="text-lg px-8"
-                >
+              >
                 <a
-                  href="https://www.ringcentral.com/view_demo.html"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfJx1aIUdkiQc0RLlU0D3ZZIiYO-WJRosxst7s5F5g7FMDzEw/viewform?usp=dialog"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Register Now
                 </a>
-                </Button>
-                <Button
+              </Button>
+              <Button
                 asChild
                 size="lg"
                 variant="outline"
                 className="text-lg px-8"
-                >
+              >
                 <a href="#schedule">View Schedule</a>
-                </Button>
+              </Button>
             </div>
           </div>
         </div>
