@@ -7,12 +7,12 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Nulledge Conference 2025 | Technology Innovation Summit",
+  title: "Nulledge Conference 2025 | ServiceNow Conference",
   description:
-    "Join the leading minds in technology for three days of innovation, networking, and cutting-edge insights at Nulledge Conference 2025.",
+    "Join the leading minds in ServiceNow for a day of innovation, networking, and cutting-edge insights at Nulledge Conference 2025.",
   generator: '',
   icons: {
-    icon: '/public/nulledge.png',
+    icon: '/nulledge.png',
   },
 }
 
