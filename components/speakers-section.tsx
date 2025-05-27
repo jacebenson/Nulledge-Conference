@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 
@@ -77,14 +78,19 @@ export function SpeakersSection() {
 
       <div className="text-center mb-16 py-16">
           <h2 className="text-2xl font-bold mb-4">Call for Proposals</h2>
-          <a
-        href="https://docs.google.com/spreadsheets/d/11yMzyCNeEouDRqCczRkrgNP5RtMxaCgaTiWImYi2gY4/edit?gid=534923077#gid=534923077"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block px-6 py-3 bg-primary text-white font-semibold rounded hover:bg-primary/90 transition"
-          >
-        Submit Your Session
-          </a>
+          <Button
+                asChild
+                size="lg"
+                className="text-lg px-8"
+              >
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfJx1aIUdkiQc0RLlU0D3ZZIiYO-WJRosxst7s5F5g7FMDzEw/viewform?usp=dialog"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Register Now
+                </a>
+              </Button>
         </div>
     </section>
   )
