@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
+import Image from 'next/image';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -14,7 +15,13 @@ export function Header() {
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-            <img src="/public/nulledge.png" alt="Nulledge Logo" className="h-6 w-6 object-contain" />
+            <Image
+              src="/nulledge.png"
+              alt="Nulledge Logo"
+              width={24}
+              height={24}
+              className="h-8 w-8 object-contain"
+            />
           </div>
           <span className="font-bold text-xl">Nulledge</span>
         </Link>
