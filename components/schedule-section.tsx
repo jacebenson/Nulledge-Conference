@@ -97,7 +97,7 @@ export function ScheduleSection() {
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-3xl md:text-5xl font-bold">Event Schedule</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Three days packed with inspiring talks, hands-on workshops, and networking opportunities.
+            Join us for a day packed with inspiring talks, hands-on workshops, and networking opportunities.
           </p>
         </div>
 

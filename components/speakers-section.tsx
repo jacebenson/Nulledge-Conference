@@ -10,28 +10,28 @@ export function SpeakersSection() {
       title: "TBD",
       company: "TechCorp",
       image: "/placeholder.svg?height=300&width=300",
-      topics: ["ServiceNow", "ServiceNow"],
+      topics: ["Technology", "Technology"],
     },
     {
       name: "TBD",
       title: "TBD",
       company: "TechCorp",
       image: "/placeholder.svg?height=300&width=300",
-      topics: ["ServiceNow", "ServiceNow"],
+      topics: ["Technology", "Technology"],
     },
     {
       name: "TBD",
       title: "TBD",
       company: "TechCorp",
       image: "/placeholder.svg?height=300&width=300",
-      topics: ["ServiceNow", "ServiceNow"],
+      topics: ["Technology", "Technology"],
     },
     {
       name: "TBD",
       title: "TBD",
       company: "TechCorp",
       image: "/placeholder.svg?height=300&width=300",
-      topics: ["ServiceNow", "ServiceNow"],
+      topics: ["Technology", "Technology"],
     },
   ]
 

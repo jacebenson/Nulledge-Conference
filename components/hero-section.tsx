@@ -14,7 +14,7 @@ export function HeroSection() {
               <span className="block text-primary">Conference 2025</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-              Join the leading minds in technology for three days of innovation, networking, and cutting-edge insights.
+              Join the leading minds in technology for a day of innovation, networking, and cutting-edge insights.
             </p>
           </div>
 
