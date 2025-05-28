@@ -6,7 +6,7 @@ export function AboutSection() {
     {
       icon: Code,
       title: "Cutting-Edge Tech",
-      description: "Explore the latest in ServiceNow technology and innovations.",
+      description: "Explore the latest in technology and innovations.",
     },
     {
       icon: Network,
@@ -16,7 +16,7 @@ export function AboutSection() {
     {
       icon: Lightbulb,
       title: "Innovation",
-      description: "Discover breakthrough ideas and solutions shaping the future of ServiceNow.",
+      description: "Discover breakthrough ideas and solutions shaping the future of technology.",
     },
     {
       icon: Rocket,
@@ -31,7 +31,7 @@ export function AboutSection() {
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-3xl md:text-5xl font-bold">About Nulledge</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Nulledge Conference brings together the brightest minds in ServiceNow<sup>™</sup> to share knowledge, inspire
+            Nulledge Conference brings together the brightest minds in technology to share knowledge, inspire
             innovation, and shape the future of our digital world.
             </p>
         </div>

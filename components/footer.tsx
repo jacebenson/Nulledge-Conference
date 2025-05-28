@@ -16,7 +16,7 @@ export function Footer() {
               <span className="font-bold text-xl">Nulledge</span>
             </div>
             <p className="text-muted-foreground text-center md:text-left">
-              Connecting innovators and shaping the future of ServiceNow
+              Connecting innovators and shaping the future of technology.
               <sup>™</sup>.
             </p>
           </div>

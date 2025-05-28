@@ -5,8 +5,8 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
-let title = "Nulledge Conference 2025 | Unofficial ServiceNow Conference"
-let description = "Join the leading minds in ServiceNow for a day of innovation, networking, and cutting-edge insights at Nulledge Conference 2025."
+let title = "Nulledge Conference 2025 | Unofficial Technology Conference"
+let description = "Join the leading minds in technology for a day of innovation, networking, and cutting-edge insights at Nulledge Conference 2025."
 export const metadata: Metadata = {
   title: title,
   description: description,
