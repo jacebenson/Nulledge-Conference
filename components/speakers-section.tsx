@@ -76,7 +76,7 @@ export function SpeakersSection() {
         </div>
       </div>
 
-      <div className="text-center mb-16 py-16">
+      {/* <div className="text-center mb-16 py-16">
         <h2 className="text-2xl font-bold mb-4">Call for Proposals</h2>
         <Button
           asChild
@@ -91,7 +91,7 @@ export function SpeakersSection() {
             Register Now
           </a>
         </Button>
-      </div>
+      </div> */}
     </section>
   )
 }
