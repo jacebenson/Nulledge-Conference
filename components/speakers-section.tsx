@@ -6,17 +6,17 @@ import Image from "next/image"
 export function SpeakersSection() {
   const speakers = [
     {
-      name: "TBD",
-      title: "TBD",
+      name: "Chuck Tomasi",
+      title: "Sr. Trainer",
       company: "TechCorp",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/speakers/chuck-tomasi.jpg?height=300&width=300",
       topics: ["Technology", "Technology"],
     },
     {
-      name: "TBD",
-      title: "TBD",
-      company: "TechCorp",
-      image: "/placeholder.svg?height=300&width=300",
+      name: "Jace Benson",
+      title: "Founder",
+      company: "AI In A Box",
+      image: "/speakers/jace-benson.jpg?height=300&width=300",
       topics: ["Technology", "Technology"],
     },
     {
@@ -74,6 +74,23 @@ export function SpeakersSection() {
             </Card>
           ))}
         </div>
+      </div>
+
+      <div className="text-center mb-16 py-16">
+        <h2 className="text-2xl font-bold mb-4">Call for Proposals</h2>
+        <Button
+          asChild
+          size="lg"
+          className="text-lg px-8"
+        >
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLScMoi3ZWPeSAtDEX4kX1LqkZ2N5thCUJO0AeyFbrJyX9VVlcw/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Submit Talk
+          </a>
+        </Button>
       </div>
     </section>
   )
