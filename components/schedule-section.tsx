@@ -10,7 +10,7 @@ export function ScheduleSection() {
         {
           time: "11:00 - 11:30 AM EST",
           title: "Welcome and Opening Remarks",
-          speaker: "Nulledge Team",
+          speaker: "Jace Benson & Chuck Tomasi",
           location: "Main Session",
           type: "keynote",
         },
