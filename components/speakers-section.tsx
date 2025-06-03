@@ -6,17 +6,17 @@ import Image from "next/image"
 export function SpeakersSection() {
   const speakers = [
     {
-      name: "TBD",
-      title: "TBD",
+      name: "Chuck Tomasi",
+      title: "Sr. Trainer",
       company: "TechCorp",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/speakers/chuck-tomasi.jpg?height=300&width=300",
       topics: ["Technology", "Technology"],
     },
     {
-      name: "TBD",
-      title: "TBD",
-      company: "TechCorp",
-      image: "/placeholder.svg?height=300&width=300",
+      name: "Jace Benson",
+      title: "Founder",
+      company: "AI In A Box",
+      image: "/speakers/jace-benson.jpg?height=300&width=300",
       topics: ["Technology", "Technology"],
     },
     {
@@ -88,7 +88,7 @@ export function SpeakersSection() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Register Now
+            Submit Talk
           </a>
         </Button>
       </div>
