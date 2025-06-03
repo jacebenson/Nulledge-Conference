@@ -7,8 +7,8 @@ export function SpeakersSection() {
   const speakers = [
     {
       name: "Chuck Tomasi",
-      title: "Sr. Trainer",
-      company: "TechCorp",
+      title: "Former Sr. Developer Advocate",
+      company: "ServiceNow",
       image: "/speakers/chuck-tomasi.jpg?height=300&width=300",
       topics: ["Technology", "Technology"],
     },
