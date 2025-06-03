@@ -20,10 +20,10 @@ export function SpeakersSection() {
       topics: ["Technology", "Technology"],
     },
     {
-      name: "TBD",
-      title: "TBD",
-      company: "TechCorp",
-      image: "/placeholder.svg?height=300&width=300",
+      name: "Carleen Carter",
+      title: "Principal Architect",
+      company: "Serenity",
+      image: "/carleen-carter.jpg?height=300&width=300",
       topics: ["Technology", "Technology"],
     },
     {
