@@ -2,37 +2,55 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
+import { BsLinkedin } from "react-icons/bs";
+import Link from "next/link";
 
 export function SpeakersSection() {
   const speakers = [
     {
       name: "Chuck Tomasi",
-      title: "Former Sr. Developer Advocate",
-      company: "ServiceNow",
+      title: "Veterans Course Creator",
+      company: "BizSolutions.tech",
       image: "/speakers/chuck-tomasi.jpg?height=300&width=300",
-      topics: ["Technology", "Technology"],
+      linkedin: "https://www.linkedin.com/in/tomasi/",
+      topics: [],
     },
     {
       name: "Jace Benson",
       title: "Founder",
       company: "AI In A Box",
       image: "/speakers/jace-benson.jpg?height=300&width=300",
-      topics: ["Technology", "Technology"],
+      linkedin: "https://www.linkedin.com/in/jacebenson/",
+      topics: [],
     },
     {
       name: "Carleen Carter",
       title: "Principal Architect",
       company: "Serenity",
-      image: "/carleen-carter.jpg?height=300&width=300",
-      topics: ["Technology", "Technology"],
+      image: "/speakers/carleen-carter.jpg?height=300&width=300",
+      linkedin: "https://www.linkedin.com/in/carleencarter/",
+      topics: [],
     },
+    /*
     {
-      name: "TBD",
-      title: "TBD",
-      company: "TechCorp",
+      name: "Jeff Theis",
+      title: "Technical Architect",
+      company: "Knewget",
       image: "/placeholder.svg?height=300&width=300",
-      topics: ["Technology", "Technology"],
+      linkedin: "https://www.linkedin.com/in/jeff-thies-573147230/",
+      topics: [],
     },
+    */
+    /*
+     {
+       name: "Justin Meadows",
+       title: "Technology Enthusiast and Creator",
+       company: "jements LLC",
+       image: "/placeholder.svg?height=300&width=300",
+       linkedin: "https://www.linkedin.com/in/justinmeadows/",
+       topics: [],
+     },
+     */
   ]
 
   return (
@@ -58,7 +76,17 @@ export function SpeakersSection() {
                   className="w-full h-64 object-cover"
                 />
                 <div className="p-6 space-y-3">
-                  <h3 className="text-xl font-semibold">{speaker.name}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    <h3 className="text-xl font-semibold">
+                      {speaker.name}
+                    </h3>
+                    <span className="text-xl font-semibold content-center">
+                      <Link
+                        href={speaker.linkedin}
+                        target="_blank"
+                      ><BsLinkedin /></Link>
+                    </span>
+                  </div>
                   <p className="text-muted-foreground">
                     {speaker.title} at {speaker.company}
                   </p>
