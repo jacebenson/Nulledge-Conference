@@ -4,54 +4,19 @@ import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 import { BsLinkedin } from "react-icons/bs";
 import Link from "next/link";
+import { jsonLD } from "@/app/details";
 
 export function SpeakersSection() {
-  const speakers = [
-    {
-      name: "Chuck Tomasi",
-      title: "Veterans Course Creator",
-      company: "BizSolutions.tech",
-      image: "/speakers/chuck-tomasi.jpg?height=300&width=300",
-      linkedin: "https://www.linkedin.com/in/tomasi/",
-      topics: [],
-    },
-    {
-      name: "Jace Benson",
-      title: "Founder",
-      company: "AI In A Box",
-      image: "/speakers/jace-benson.jpg?height=300&width=300",
-      linkedin: "https://www.linkedin.com/in/jacebenson/",
-      topics: [],
-    },
-    {
-      name: "Carleen Carter",
-      title: "Principal Architect",
-      company: "Serenity",
-      image: "/speakers/carleen-carter.jpg?height=300&width=300",
-      linkedin: "https://www.linkedin.com/in/carleencarter/",
-      topics: [],
-    },
-    /*
-    {
-      name: "Jeff Theis",
-      title: "Technical Architect",
-      company: "Knewget",
-      image: "/placeholder.svg?height=300&width=300",
-      linkedin: "https://www.linkedin.com/in/jeff-thies-573147230/",
-      topics: [],
-    },
-    */
-    /*
-     {
-       name: "Justin Meadows",
-       title: "Technology Enthusiast and Creator",
-       company: "jements LLC",
-       image: "/placeholder.svg?height=300&width=300",
-       linkedin: "https://www.linkedin.com/in/justinmeadows/",
-       topics: [],
-     },
-     */
-  ]
+  let speakers = jsonLD.performers.map(function (person) {
+    return {
+      name: person.name,
+      title: person.jobTitle,
+      image: person.image,
+      linkedin: person.url,
+      company: person.worksFor.name,
+      topics: []
+    }
+  })
 
   return (
     <section id="speakers" className="p-20 md:p-32 bg-muted/50">

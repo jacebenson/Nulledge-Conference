@@ -1,79 +1,28 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Clock, MapPin } from "lucide-react"
-
+import { jsonLD } from "@/app/details"
 export function ScheduleSection() {
-  const schedule = [
+  let jsonLDevents = jsonLD.subEvents.map(function (event) {
+    let start = new Date(event.startDate).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })
+    let end = new Date(event.endDate).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })
+    let speaker = event.performers.map(function (person) {
+      return person.name
+    }).join(', ');
+    return {
+      time: start + ' - ' + end + ' EST',
+      title: event.description,
+      speaker: speaker,
+      type: event.additionalType,
+      location: event.location
+    }
+  })
+  let schedule = [
     {
       day: "Day 1 - October 17",
-      events: [
-        {
-          time: "11:00 - 11:30 AM EST",
-          title: "Welcome and Opening Remarks",
-          speaker: "Jace Benson & Chuck Tomasi",
-          location: "Main Session",
-          type: "keynote",
-        },
-        {
-          time: "11:30 - 12:00 AM EST",
-          title: "Session 1: ",
-          speaker: "Speaker TBD",
-          location: "Main Session",
-          type: "talk",
-        },
-        {
-          time: "12:00 - 12:30 PM EST",
-          title: "Session 2: ",
-          speaker: "Speaker TBD",
-          location: "Main Session",
-          type: "workshop",
-        },
-        {
-          time: "12:30 - 1:00 PM EST",
-          title: "Session 3: ",
-          speaker: "Speaker TBD",
-          location: "Main Session",
-          type: "talk",
-        },
-        {
-          time: "1:00 - 2:00 PM EST",
-          title: "Networking Session: ",
-          speaker: "Group Discussion",
-          location: "Breakout Rooms",
-          type: "networking",
-        },
-        {
-          time: "2:00 - 2:30 PM EST",
-          title: "Session 4: ",
-          speaker: "Speaker TBD",
-          location: "Main Session",
-          type: "workshop",
-        },
-        {
-          time: "2:30 - 3:00 PM EST",
-          title: "Session 5: ",
-          speaker: "Speaker TBD",
-          location: "Main Session",
-          type: "talk",
-        },
-        {
-          time: "3:00 - 3:30 PM EST",
-          title: "Session 6: ",
-          speaker: "Speaker TBD",
-          location: "Main Session",
-          type: "workshop",
-        },
-        {
-          time: "3:30 - 4:00 PM EST",
-          title: "Closing Remarks ",
-          speaker: "Speaker TBD",
-          location: "Main Session",
-          type: "keynote",
-        },
-      ],
-    },
+      events: jsonLDevents
+    }
   ]
-
   const getTypeColor = (type: string) => {
     switch (type) {
       case "introduction":
@@ -122,11 +71,13 @@ export function ScheduleSection() {
                           </div>
 
                           <div className="flex flex-col sm:flex-row gap-4 text-sm text-muted-foreground">
-                            {event.speaker && <span>Speaker: {event.speaker}</span>}
-                            <div className="flex items-center gap-1">
-                              <MapPin className="h-3 w-3" />
-                              <span>{event.location}</span>
-                            </div>
+                            {event?.speaker && <span>Speaker: {event.speaker}</span>}
+                            {event?.location &&
+                              <div className="flex items-center gap-1">
+                                <MapPin className="h-3 w-3" />
+                                <span>{event?.location}</span>
+                              </div>
+                            }
                           </div>
                         </div>
                       </div>
