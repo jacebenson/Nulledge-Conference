@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
-import { BsLinkedin } from "react-icons/bs";
+import { ExternalLink } from "lucide-react"
 import Link from "next/link";
 import { jsonLD } from "@/app/details";
 
@@ -49,7 +49,7 @@ export function SpeakersSection() {
                       <Link
                         href={speaker.linkedin}
                         target="_blank"
-                      ><BsLinkedin /></Link>
+                      ><ExternalLink /></Link>
                     </span>
                   </div>
                   <p className="text-muted-foreground">
