@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
-
 interface TimeLeft {
   days: number
   hours: number
@@ -10,9 +9,9 @@ interface TimeLeft {
   seconds: number
 }
 
-export function CountdownTimer() {
+export function CountdownTimer({ DateTime }) {
   // Set your conference date here (Year, Month-1, Day, Hour, Minute)
-  const conferenceDate = new Date(2025, 10, 17, 10, 0) // November 17, 2025, 10:00 AM
+  const conferenceDate = new Date(DateTime) // November 17, 2025, 10:00 AM
 
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 0,

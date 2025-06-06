@@ -2,38 +2,21 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
+import { ExternalLink } from "lucide-react"
+import Link from "next/link";
+import { jsonLD } from "@/app/details";
 
 export function SpeakersSection() {
-  const speakers = [
-    {
-      name: "Chuck Tomasi",
-      title: "Former Sr. Developer Advocate",
-      company: "ServiceNow",
-      image: "/speakers/chuck-tomasi.jpg?height=300&width=300",
-      topics: ["Technology", "Technology"],
-    },
-    {
-      name: "Jace Benson",
-      title: "Founder",
-      company: "AI In A Box",
-      image: "/speakers/jace-benson.jpg?height=300&width=300",
-      topics: ["Technology", "Technology"],
-    },
-    {
-      name: "TBD",
-      title: "TBD",
-      company: "TechCorp",
-      image: "/placeholder.svg?height=300&width=300",
-      topics: ["Technology", "Technology"],
-    },
-    {
-      name: "TBD",
-      title: "TBD",
-      company: "TechCorp",
-      image: "/placeholder.svg?height=300&width=300",
-      topics: ["Technology", "Technology"],
-    },
-  ]
+  let speakers = jsonLD.performers.map(function (person) {
+    return {
+      name: person.name,
+      title: person.jobTitle,
+      image: person.image,
+      linkedin: person.url,
+      company: person.worksFor.name,
+      topics: []
+    }
+  })
 
   return (
     <section id="speakers" className="p-20 md:p-32 bg-muted/50">
@@ -58,7 +41,17 @@ export function SpeakersSection() {
                   className="w-full h-64 object-cover"
                 />
                 <div className="p-6 space-y-3">
-                  <h3 className="text-xl font-semibold">{speaker.name}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    <h3 className="text-xl font-semibold">
+                      {speaker.name}
+                    </h3>
+                    <span className="text-xl font-semibold content-center">
+                      <Link
+                        href={speaker.linkedin}
+                        target="_blank"
+                      ><ExternalLink /></Link>
+                    </span>
+                  </div>
                   <p className="text-muted-foreground">
                     {speaker.title} at {speaker.company}
                   </p>
