@@ -14,7 +14,7 @@ export function ScheduleSection() {
       return person.name
     }).join(', ');
     return {
-      time: `${start} - ${end} ${timeZone}...`,
+      time: `${start} - ${end} ${timeZone}`,
       timeUTC: `${startUTC} - ${endUTC}`,
       title: event.description,
       speaker: speaker,
