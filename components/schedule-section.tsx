@@ -1,3 +1,4 @@
+'use client';
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Clock, MapPin } from "lucide-react"
@@ -13,7 +14,7 @@ export function ScheduleSection() {
       return person.name
     }).join(', ');
     return {
-      time: `${start} - ${end} ${timeZone}`,
+      time: `${start} - ${end} ${timeZone}...`,
       timeUTC: `${startUTC} - ${endUTC}`,
       title: event.description,
       speaker: speaker,
