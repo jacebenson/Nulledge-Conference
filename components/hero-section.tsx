@@ -21,7 +21,14 @@ export function HeroSection() {
               <span className="block text-primary">Conference {date.getFullYear()}</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-              Join the leading minds in technology for a day of innovation, networking, and cutting-edge insights.
+              Join the leading minds in{" "}
+              <span className="underline decoration-dotted cursor-pointer relative group">
+              ServiceNow
+              <span className="absolute left-1/2 -translate-x-1/2 mt-2 w-max px-3 py-2 rounded bg-background border text-sm text-foreground shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
+               nullEDGE is not affiliated with nor sponsored by ServiceNow.
+              </span>
+              </span>{" "}
+              for a day of innovation, networking, and cutting-edge insights.
             </p>
           </div>
 

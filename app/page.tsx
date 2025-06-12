@@ -3,7 +3,7 @@ import { HeroSection } from "@/components/hero-section"
 import { AboutSection } from "@/components/about-section"
 import { SpeakersSection } from "@/components/speakers-section"
 import { ScheduleSection } from "@/components/schedule-section"
-import { CallForProposals } from "@/components/tickets-section"
+import { CallForProposals } from "@/components/call-for-proposals.jsx"
 import { Footer } from "@/components/footer"
 import { jsonLD } from "./details.js"
 export default function HomePage() {
@@ -23,7 +23,7 @@ export default function HomePage() {
         <AboutSection />
         <SpeakersSection />
         <ScheduleSection />
-        <CallForProposals />
+        {/* <CallForProposals /> */}
       </main>
       <Footer />
     </div>
