@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: description,
   generator: '',
   icons: {
-    icon: '/nulledge.png',
+    icon: '/nullEDGEicon.png',
   },
   openGraph: {
     title: title,
