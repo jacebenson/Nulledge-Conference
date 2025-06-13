@@ -270,7 +270,7 @@ export const jsonLD = {
     "@context": "https://schema.org",
     "@type": "Event",
     "@id": "Event",
-    "about": "Nulledge Conference brings together the brightest minds in technology to share knowledge, inspire innovation, and shape the future of our digital world.",
+    "about": "nullEDGE Conference brings together the brightest minds in technology to share knowledge, inspire innovation, and shape the future of our digital world.",
     "startDate": "2025-10-17T11:00:00-04:00",
     "endDate": "2025-10-17T16:00:00-04:00",
     "keywords": "[servicenow,sn,knowledge,servicenow meetup,sn meetup,virtual servicenow]",

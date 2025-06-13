@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { CountdownTimer } from "@/components/countdown-timer"
 import { Calendar, MapPin, Users } from "lucide-react"
 import { jsonLD } from "@/app/details"
+import Image from 'next/image';
 export function HeroSection() {
   let date = new Date(jsonLD.startDate);
   let when = date.toLocaleDateString("en-US", {
@@ -15,9 +16,16 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
       <div className="container relative z-10">
         <div className="text-center space-y-8">
-          <div className="space-y-4">
+          <div className="space-y-4"> 
+			<Image
+              src="/nulledgelogo.jpg"
+              alt="Nulledge Logo"
+              width={600}
+              height={150}
+			  className="justify-center"
+            />
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-              {jsonLD.name}
+			{/*{jsonLD.name}*/}
               <span className="block text-primary">Conference {date.getFullYear()}</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">

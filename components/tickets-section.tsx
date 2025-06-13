@@ -28,7 +28,7 @@ export function CallForProposals() {
         <div className="text-center space-y-4 mb-12">
           <h2 className="text-3xl md:text-5xl font-bold">Call for Proposals</h2>
           <p className="text-xl text-muted-foreground">
-            We invite you to submit your talk, workshop, or panel ideas for Nulledge Conference! Share your expertise and help shape the event.
+            We invite you to submit your talk, workshop, or panel ideas for nullEDGE Conference! Share your expertise and help shape the event.
           </p>
         </div>
         {/* Responsive: Show iframe on desktop, button on mobile */}

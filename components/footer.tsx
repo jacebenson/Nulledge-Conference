@@ -8,16 +8,16 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-stretch md:space-x-12 space-y-8 md:space-y-0">
           <div className="flex-1 flex flex-col items-center md:items-start space-y-6 min-w-[200px]">
             <div className="flex items-center space-x-2">
-              <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
+			{/*<div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-lg">
-                  N
+                  n
                 </span>
-              </div>
-              <span className="font-bold text-xl">Nulledge</span>
+			</div>*/}
+              <span className="font-bold text-xl">nullEDGE</span>
             </div>
             <p className="text-muted-foreground text-center md:text-left">
-              Connecting innovators and shaping the future of technology.
-              <sup>™</sup>.
+              Connecting innovators and shaping the future of technology
+              <sup>™</sup>
             </p>
           </div>
 
@@ -52,7 +52,7 @@ export function Footer() {
 
         <div className="border-t mt-12 pt-8 text-center text-sm text-muted-foreground">
           <p>
-            &copy; {new Date().getFullYear()} Nulledge Conference. All rights
+            &copy; {new Date().getFullYear()} nullEDGE Conference. All rights
             reserved.
           </p>
         </div>
