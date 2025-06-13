@@ -16,14 +16,15 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
       <div className="container relative z-10">
         <div className="text-center space-y-8">
-          <div className="space-y-4"> 
-			<Image
-              src="/nulledgelogo.jpg"
-              alt="Nulledge Logo"
-              width={600}
-              height={150}
-			  className="justify-center"
-            />
+          <div className="space-y-4">
+			<div className="flex justify-center">
+              <Image
+                src="/nullEDGElogo.jpg"
+                alt="nullEDGE Logo"
+                width={600}
+                height={150}
+              />
+            </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
 			{/*{jsonLD.name}*/}
               <span className="block text-primary">Conference {date.getFullYear()}</span>
