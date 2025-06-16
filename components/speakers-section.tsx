@@ -4,7 +4,6 @@ import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 import { ExternalLink } from "lucide-react"
 import Link from "next/link";
-import { jsonLD } from "@/app/details";
 
 export function SpeakersSection({ sessionData }) {
   let featuredSessions = sessionData.props.data.filter(function (event, index) {
@@ -34,16 +33,6 @@ export function SpeakersSection({ sessionData }) {
         })
       })
 
-    }
-  })
-  let speakers = jsonLD.performers.map(function (person) {
-    return {
-      name: person.name,
-      title: person.jobTitle,
-      image: person.image,
-      linkedin: person.url,
-      company: person.worksFor.name,
-      topics: []
     }
   })
 
