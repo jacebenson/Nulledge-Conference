@@ -1,18 +1,9 @@
 import { Button } from "@/components/ui/button"
-import { CountdownTimer } from "@/components/countdown-timer"
 import { Calendar, Speech } from "lucide-react"
 
 import Image from 'next/image';
 
 export function HeroSession({ title, type, date, startTime, endTime, who, image, description }) {
-  let dateParts = date.split('/');
-  let month = dateParts[0];
-  let day = dateParts[1];
-  let year = dateParts[2];
-  let startHour = startTime.split(':')[0];
-  let startMinute = startTime.split(':')[1];
-  let endHour = endTime.split(':')[0];
-  let endMinute = endTime.split(':')[1];
 
   return (
     <section className="relative p-20 md:p-32 overflow-hidden">

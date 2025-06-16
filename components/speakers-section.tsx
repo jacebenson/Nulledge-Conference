@@ -6,7 +6,36 @@ import { ExternalLink } from "lucide-react"
 import Link from "next/link";
 import { jsonLD } from "@/app/details";
 
-export function SpeakersSection() {
+export function SpeakersSection({ sessionData }) {
+  let featuredSessions = sessionData.props.data.filter(function (event, index) {
+    if (event.featured == "TRUE") { return true }
+    return false
+  })
+  let featuredSpeakers = []
+  featuredSessions.forEach(function (event) {
+    if (event.speakers) {
+      let speakers = event.speakers.replace('\n', '').split(',')
+      let images = event.speakersImages.replace('\n', '').split(',')
+      let titles = event.speakersTitles.replace('\n', '').split(',')
+      let speakerURLs = event.speakersURLs.replace('\n', '').split(',')
+      let employers = event.speakersEmployers.replace('\n', '').split(',')
+      let employerURLs = event.speakersEmployerURLs.replace('\n', '').split(',')
+      let employerImages = event.speakersEmployerImages.replace('\n', '').split(',')
+      speakers.forEach(function (speaker, speakerIndex) {
+        featuredSpeakers.push({
+          name: speaker,
+          image: images[speakerIndex].trim(),
+          title: titles[speakerIndex],
+          linkedin: speakerURLs[speakerIndex],
+          company: employers[speakerIndex],
+          employerURL: employerURLs[speakerIndex],
+          employerImage: employerImages[speakerIndex],
+          topics: []
+        })
+      })
+
+    }
+  })
   let speakers = jsonLD.performers.map(function (person) {
     return {
       name: person.name,
@@ -27,10 +56,15 @@ export function SpeakersSection() {
             Learn from industry experts and thought leaders who are driving innovation and shaping the future of
             technology.
           </p>
+          <pre>
+            {JSON.stringify(featuredSessions, null, ' ')}
+            ...
+            {JSON.stringify(featuredSpeakers, null, ' ')}
+          </pre>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {speakers.map((speaker, index) => (
+          {featuredSpeakers.map((speaker, index) => (
             <Card key={index} className="overflow-hidden">
               <CardContent className="p-0">
                 <Image

@@ -2,65 +2,50 @@ import { google } from "googleapis";
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { HeroSession } from "@/components/hero-session"
-
+import { getDataFromSheets } from "@/app/api/sheets"
 export default async function Page({ params }) {
-    const { id } = params;
-    // Auth
-    const auth = await google.auth.getClient({
-        scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly']
+    const { id } = await params;
+    var sessionData = await getSheetData()
+    let scheduleData = sessionData.props.data.filter(function (event, index) {
+        if (index == parseInt(id, 10)) { return true }
+        return false
     })
-    const sheets = google.sheets({ version: 'v4', auth })
-
-    const range = `'Accepted'!A${id}:Z${id}`
-    const response = await sheets.spreadsheets.values.get({
-        spreadsheetId: process.env.SHEET_ID,
-        range
-    })
-    //console.log({ response });
-    var headings = [
-        "Title",
-        "Type",
-        "Date",
-        "Time",
-        "Who",
-        "Image",
-        "Description"
-    ]
-    var rows = response.data.values
-    let row = rows[0];
-    let title = row[0];
-    let type = row[1] || null;
-    let date = row[2] || null;
-    let startTime = row[3] || null;
-    let endTime = row[4] || null;
-    let who = row[5] || null;
-    let image = row[6] || null;
-    let description = row[7] || null;
-    let Row = ({ row, rowIndex }) => {
-        return <tr>
-            {row.map(function (cell, cellIndex) {
-                return <td key={`row-${rowIndex}-cell-${cellIndex}`}>{cell}</td>
-            })}
-        </tr>
+    if (scheduleData.length == 0) {
+        return <div className="min-h-screen bg-background">
+            <Header />
+            <main>
+                No Session
+            </main>
+            <Footer />
+        </div>
     }
-
-    console.log({ headings, rows })
+    scheduleData = scheduleData[0]
     return <>
         <div className="min-h-screen bg-background">
             <Header />
             <main>
                 <HeroSession
-                    title={title}
-                    type={type}
-                    date={date}
-                    startTime={startTime}
-                    endTime={endTime}
-                    who={who}
-                    image={image}
-                    description={description}
+                    title={scheduleData.title}
+                    type={scheduleData.type}
+                    date={scheduleData.date}
+                    startTime={scheduleData.startTime}
+                    endTime={scheduleData.endTime}
+                    who={scheduleData.speakers}
+                    image={scheduleData.image}
+                    description={scheduleData.description}
                 />
             </main>
             <Footer />
         </div>
     </>
+}
+
+export async function getSheetData() {
+    const sheet = await getDataFromSheets();
+    return {
+        props: {
+            data: sheet.slice(0, sheet.length), // remove sheet header
+        },
+        revalidate: 1, // In seconds
+    };
 }
