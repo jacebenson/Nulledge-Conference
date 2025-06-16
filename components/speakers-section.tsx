@@ -24,7 +24,7 @@ export function SpeakersSection({ sessionData }) {
       speakers.forEach(function (speaker, speakerIndex) {
         featuredSpeakers.push({
           name: speaker,
-          image: images[speakerIndex].trim(),
+          image: images[speakerIndex]?.trim(),
           title: titles[speakerIndex],
           linkedin: speakerURLs[speakerIndex],
           company: employers[speakerIndex],
@@ -56,11 +56,6 @@ export function SpeakersSection({ sessionData }) {
             Learn from industry experts and thought leaders who are driving innovation and shaping the future of
             technology.
           </p>
-          <pre>
-            {JSON.stringify(featuredSessions, null, ' ')}
-            ...
-            {JSON.stringify(featuredSpeakers, null, ' ')}
-          </pre>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
