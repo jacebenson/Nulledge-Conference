@@ -22,7 +22,7 @@ export function AboutSection() {
     <section id="about" className="p-20 md:p-32">
       <div className="container">
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold">About Nulledge</h2>
+          <h2 className="text-3xl md:text-5xl font-bold">About nullEDGE</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             {jsonLD.about}
           </p>
