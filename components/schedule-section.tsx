@@ -1,28 +1,39 @@
 'use client';
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Clock, MapPin } from "lucide-react"
-import { jsonLD } from "@/app/details"
+
 export function ScheduleSection({ sessionData }) {
-  let jsonLDevents = jsonLD.subEvents.map(function (event) {
-    let start = new Date(event.startDate).toLocaleTimeString('en-US', { hour: "numeric", minute: "2-digit" })
-    let end = new Date(event.endDate).toLocaleTimeString('en-US', { hour: "numeric", minute: "2-digit" })
-    let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
-    let startUTC = new Date(event.startDate).toString();
-    let endUTC = new Date(event.endDate).toString();
-    let speaker = event.performers.map(function (person) {
-      return person.name
-    }).join(', ');
-    return {
-      time: `${start} - ${end} ${timeZone}`,
-      timeUTC: `${startUTC} - ${endUTC}`,
-      title: event.description,
-      speaker: speaker,
-      type: event.additionalType,
-      location: event.location
-    }
-  })
+  const [scheduleData, setScheduleData] = useState(
+    sessionData.props.data.filter((_, index) => index !== 0)
+  );
+
+  // Poll for updates every 30 seconds (adjust as needed)
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch("/api/schedule");
+        if (res.ok) {
+          const data = await res.json();
+          const filteredData = data.filter((_, index) => index !== 0);
+
+          // Compare new data with current state
+          if (JSON.stringify(filteredData) !== JSON.stringify(scheduleData)) {
+            setScheduleData(filteredData);
+          }
+        }
+      } catch (err) {
+        // Optionally handle error
+      }
+    };
+
+    fetchData(); // Fetch immediately on mount
+    const interval = setInterval(fetchData, 10000);
+    return () => clearInterval(interval);
+  }, [scheduleData]);
+
   const getTypeColor = (type: string) => {
     switch (type) {
       case "introduction":
@@ -39,10 +50,7 @@ export function ScheduleSection({ sessionData }) {
         return "bg-secondary text-secondary-foreground"
     }
   }
-  let scheduleData = sessionData.props.data.filter(function (event, index) {
-    if (index != 0) { return true }
-    return false
-  })
+
   return (
     <section id="schedule" className="p-20 md:p-32">
       <div className="container">
@@ -71,15 +79,12 @@ export function ScheduleSection({ sessionData }) {
                             </summary>
                             <span className="font-medium">{event.startTime} - {event.endTime}</span>
                           </details>
-
                         </div>
-
                         <div className="flex-1 space-y-2">
                           <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                             <h4 className="text-lg font-semibold">{event.title}</h4>
                             <Badge className={getTypeColor(event.type.toLowerCase())}>{event.type}</Badge>
                           </div>
-
                           <div className="flex flex-col sm:flex-row gap-4 text-sm text-muted-foreground">
                             {event?.speakers && <span>Speaker(s): {event.speakers}</span>}
                             {event?.location &&
