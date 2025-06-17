@@ -3,10 +3,12 @@ import { HeroSection } from "@/components/hero-section"
 import { AboutSection } from "@/components/about-section"
 import { SpeakersSection } from "@/components/speakers-section"
 import { ScheduleSection } from "@/components/schedule-section"
-import { CallForProposals } from "@/components/tickets-section"
 import { Footer } from "@/components/footer"
 import { jsonLD } from "./details.js"
 import { getDataFromSheets } from "./api/sheets.js"
+import { CallForProposals } from "@/components/tickets-section"
+
+
 export default async function HomePage() {
   var sessionData = await getSheetData()
   return (

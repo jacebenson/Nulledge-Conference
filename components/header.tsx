@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { ModeToggle } from "@/components/mode-toggle"
-import Image from 'next/image';
+import { useState } from "react";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/mode-toggle";
+import Image from "next/image";
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="px-4 sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -45,11 +45,7 @@ export function Header() {
         <div className="flex items-center space-x-4">
           <ModeToggle />
           {/* <Button className="hidden md:inline-flex">Register Now</Button> */}
-          <Button
-            asChild
-            size="lg"
-            className="text-lg px-8"
-          >
+          <Button asChild size="lg" className="text-lg px-8">
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSfJx1aIUdkiQc0RLlU0D3ZZIiYO-WJRosxst7s5F5g7FMDzEw/viewform?usp=dialog"
               target="_blank"
@@ -60,8 +56,17 @@ export function Header() {
           </Button>
 
           {/* Mobile Menu Button */}
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
           </Button>
         </div>
       </div>
@@ -97,11 +102,18 @@ export function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               Call for Proposals
+            </Link> */}
+            <Link
+              href="/callForProposals"
+              className="block text-sm font-medium hover:text-primary transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Call for Proposals
             </Link>
             <Button className="w-full">Register to Attend</Button>
           </nav>
         </div>
       )}
     </header>
-  )
+  );
 }
