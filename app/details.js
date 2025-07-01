@@ -302,7 +302,7 @@ export const jsonLD = {
         }
     ],
     "image": [
-        "https://thenulledge.com/og.png",
+        "https://thenulledge.com/nullEDGE Conference.jpg",
         "https://thenulledge.com/nulledge.png",
     ],
     "eventStatus": "https://schema.org/EventScheduled",
