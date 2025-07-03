@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description: description,
     url: 'https://thenulledge.com',
     siteName: title,
-    images: [{ url: 'https://thenulledge.com/og.png' }]
+    images: [{ url: 'https://thenulledge.com/nullEDGE Conference.jpg' }]
   },
 }
 
