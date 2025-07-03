@@ -45,7 +45,7 @@ export function Header() {
         <div className="flex items-center space-x-4">
           <ModeToggle />
           {/* <Button className="hidden md:inline-flex">Register Now</Button> */}
-          <Button asChild size="lg" className="text-lg px-8">
+          <Button asChild size="lg" className="text-lg px-2">
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSfJx1aIUdkiQc0RLlU0D3ZZIiYO-WJRosxst7s5F5g7FMDzEw/viewform?usp=dialog"
               target="_blank"
@@ -102,15 +102,8 @@ export function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               Call for Proposals
-            </Link> */}
-            <Link
-              href="/callForProposals"
-              className="block text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Call for Proposals
             </Link>
-            <Button className="w-full">Register to Attend</Button>
+            <Button className="mx-auto w-fit block">Register to Attend</Button>
           </nav>
         </div>
       )}
