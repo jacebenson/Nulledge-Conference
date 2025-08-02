@@ -82,7 +82,7 @@ export function ScheduleSection({ sessionData }) {
                         </div>
                         <div className="flex-1 space-y-2">
                           <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-                            <h4 className="text-lg font-semibold">{event.title}</h4>
+                            <h4 className="text-lg font-semibold">{event.description}</h4>
                             <Badge className={getTypeColor(event.type.toLowerCase())}>{event.type}</Badge>
                           </div>
                           <div className="flex flex-col sm:flex-row gap-4 text-sm text-muted-foreground">
