@@ -131,16 +131,7 @@ export function ScheduleSection({ sessionData }: { sessionData: SessionData }) {
                     
                   </Card>
                 </Link>
-                  <details className="mt-3">
-                    <summary className="cursor-pointer text-xs text-muted-foreground hover:text-foreground">
-                      View raw event data
-                    </summary>
-                    <div className="mt-2 p-3 bg-muted rounded-md">
-                      <code className="text-xs whitespace-pre-wrap block">
-                        {JSON.stringify(event, null, 2)}
-                      </code>
-                    </div>
-                  </details>
+                 
                 </>
               ))}
             </div>

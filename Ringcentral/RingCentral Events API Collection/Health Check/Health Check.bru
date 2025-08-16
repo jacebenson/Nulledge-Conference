@@ -1,0 +1,23 @@
+meta {
+  name: Health Check
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{RingCentralEventsProdURL}}/v1/health
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{bearer_token}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Use this endpoint for checking health of API service
+}

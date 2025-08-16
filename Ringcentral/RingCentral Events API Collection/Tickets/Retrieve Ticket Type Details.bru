@@ -1,0 +1,19 @@
+meta {
+  name: Retrieve Ticket Type Details
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{RingCentralEventsProdURL}}/v1/tickets/{{ticketId}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{bearer_token}}
+}
+
+settings {
+  encodeUrl: true
+}

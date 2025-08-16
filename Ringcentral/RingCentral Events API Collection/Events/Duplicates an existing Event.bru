@@ -1,0 +1,32 @@
+meta {
+  name: Duplicates an existing Event
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{RingCentralEventsProdURL}}/v1/events/{{eventId}}/duplications
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{bearer_token}}
+}
+
+body:json {
+  {
+    "data": {
+      "type": "event",
+      "attributes": {
+        "name": "string",
+        "timeStart": "2019-08-24T14:15:22Z",
+        "timezone": "Abu Dhabi"
+      }
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

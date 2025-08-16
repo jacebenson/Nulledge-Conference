@@ -1,0 +1,42 @@
+meta {
+  name: Creates Magic Link for a Ticket type
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{RingCentralEventsProdURL}}/v1/tickets/{{ticketId}}/magicLinks
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{bearer_token}}
+}
+
+body:json {
+  {
+    "data": {
+      "type": "magicLink",
+      "attributes": {
+        "email": "string",
+        "extraFields": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "firstName": "string",
+        "headline": "string",
+        "lastName": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "registrationId": "string"
+      }
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,38 @@
+meta {
+  name: Creates an event from template
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{RingCentralEventsProdURL}}/v1/templates/{{templateID}}/event
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{bearer_token}}
+}
+
+body:json {
+  {
+    "data": {
+      "type": "event",
+      "attributes": {
+        "auto_publish": true,
+        "metadata": {},
+        "name": "string",
+        "organizationId": "string",
+        "password": "string",
+        "timeEnd": "2019-08-24T14:15:22Z",
+        "timeStart": "2019-08-24T14:15:22Z",
+        "timezone": "Abu Dhabi",
+        "type": "hidden_event"
+      }
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Get Reports List for an Event
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{RingCentralEventsProdURL}}/v1/events/{{eventId}}/reports
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{bearer_token}}
+}
+
+settings {
+  encodeUrl: true
+}

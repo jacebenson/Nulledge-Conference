@@ -1,0 +1,43 @@
+meta {
+  name: Retrieve Magic Links for a Ticket type
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{RingCentralEventsProdURL}}/v1/tickets/{{ticketId}}/magicLinks
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{bearer_token}}
+}
+
+body:json {
+  {
+    "email": {
+      "eq": "string",
+      "in": [
+        "string"
+      ]
+    },
+    "updatedAt": {
+      "eq": "2019-08-24T14:15:22Z",
+      "in": [
+        "2019-08-24T14:15:22Z"
+      ],
+      "gt": "2019-08-24T14:15:22Z",
+      "lt": "2019-08-24T14:15:22Z",
+      "gte": "2019-08-24T14:15:22Z",
+      "lte": "2019-08-24T14:15:22Z"
+    },
+    "includeConfirmAndJoin": {
+      "eq": true
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

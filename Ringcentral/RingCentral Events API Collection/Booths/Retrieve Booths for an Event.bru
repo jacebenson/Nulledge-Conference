@@ -1,0 +1,19 @@
+meta {
+  name: Retrieve Booths for an Event
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{RingCentralEventsProdURL}}/v1/events/{{eventId}}/booths
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{bearer_token}}
+}
+
+settings {
+  encodeUrl: true
+}

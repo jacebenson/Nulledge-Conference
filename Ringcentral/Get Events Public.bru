@@ -1,0 +1,15 @@
+meta {
+  name: Get Events Public
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://events.ringcentral.com/api/v2/schedules/public/nulledge/items
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: false
+}

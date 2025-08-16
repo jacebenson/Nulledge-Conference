@@ -1,0 +1,19 @@
+meta {
+  name: Returns the list of the organization's templates
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{RingCentralEventsProdURL}}/v1/organizations{{organizationId}}/templates
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{bearer_token}}
+}
+
+settings {
+  encodeUrl: true
+}

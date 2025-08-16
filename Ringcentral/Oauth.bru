@@ -1,0 +1,19 @@
+meta {
+  name: Oauth
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{domain}}/provided_intention_path?resource=https%3A//events.ringcentral.com/organizations/{{organizationID}}
+  body: none
+  auth: inherit
+}
+
+params:query {
+  resource: https%3A//events.ringcentral.com/organizations/{{organizationID}}
+}
+
+settings {
+  encodeUrl: true
+}
