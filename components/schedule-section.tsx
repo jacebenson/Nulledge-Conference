@@ -5,9 +5,34 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Clock, MapPin } from "lucide-react"
 
-export function ScheduleSection({ sessionData }) {
-  const [scheduleData, setScheduleData] = useState(
-    sessionData.props.data.filter((_, index) => index !== 0)
+interface SessionEvent {
+  title: string;
+  type: string;
+  date: string;
+  startTime: string;
+  endTime: string;
+  image: string;
+  description: string;
+  speakers: string;
+  speakersTitles: string;
+  speakersImages: string;
+  speakersURLs: string;
+  speakersEmployers: string;
+  speakersEmployerURLs: string;
+  speakersEmployerImages: string;
+  featured: boolean;
+  location?: string;
+}
+
+interface SessionData {
+  props: {
+    data: SessionEvent[];
+  };
+}
+
+export function ScheduleSection({ sessionData }: { sessionData: SessionData }) {
+  const [scheduleData, setScheduleData] = useState<SessionEvent[]>(
+    sessionData.props.data
   );
 
   // Poll for updates every 30 seconds (adjust as needed)
@@ -16,8 +41,8 @@ export function ScheduleSection({ sessionData }) {
       try {
         const res = await fetch("/api/schedule");
         if (res.ok) {
-          const data = await res.json();
-          const filteredData = data.filter((_, index) => index !== 0);
+          const data: SessionEvent[] = await res.json();
+          const filteredData = data;
 
           // Compare new data with current state
           if (JSON.stringify(filteredData) !== JSON.stringify(scheduleData)) {
@@ -64,8 +89,8 @@ export function ScheduleSection({ sessionData }) {
           <div>
             <h3 className="text-2xl font-bold mb-6">Day 1 - October 17</h3>
             <div className="grid gap-4">
-              {scheduleData.map((event, eventIndex) => (
-                <Link
+              {scheduleData.map((event: SessionEvent, eventIndex: number) => (
+                <><Link
                   key={eventIndex}
                   href={`/sessions/${eventIndex + 1}`}>
                   <Card>
@@ -82,7 +107,7 @@ export function ScheduleSection({ sessionData }) {
                         </div>
                         <div className="flex-1 space-y-2">
                           <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-                            <h4 className="text-lg font-semibold">{event.description}</h4>
+                            <h4 className="text-lg font-semibold">{event.title || event.description}</h4>
                             <Badge className={getTypeColor(event.type.toLowerCase())}>{event.type}</Badge>
                           </div>
                           <div className="flex flex-col sm:flex-row gap-4 text-sm text-muted-foreground">
@@ -94,11 +119,29 @@ export function ScheduleSection({ sessionData }) {
                               </div>
                             }
                           </div>
+                          {event.description && event.description !== event.title && (
+                            <p className="text-sm text-muted-foreground mt-2">
+                              {event.description}
+                            </p>
+                          )}
+                          
                         </div>
                       </div>
                     </CardContent>
+                    
                   </Card>
                 </Link>
+                  <details className="mt-3">
+                    <summary className="cursor-pointer text-xs text-muted-foreground hover:text-foreground">
+                      View raw event data
+                    </summary>
+                    <div className="mt-2 p-3 bg-muted rounded-md">
+                      <code className="text-xs whitespace-pre-wrap block">
+                        {JSON.stringify(event, null, 2)}
+                      </code>
+                    </div>
+                  </details>
+                </>
               ))}
             </div>
           </div>

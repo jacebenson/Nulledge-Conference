@@ -5,7 +5,7 @@ import { SpeakersSection } from "@/components/speakers-section"
 import { ScheduleSection } from "@/components/schedule-section"
 import { Footer } from "@/components/footer"
 import { jsonLD } from "./details.js"
-import { getDataFromSheets } from "./api/sheets.js"
+import { getDataFromRingCentral } from "./api/sheets.js"
 import { CallForProposals } from "@/components/tickets-section"
 
 
@@ -34,7 +34,7 @@ export default async function HomePage() {
   )
 }
 export async function getSheetData() {
-  const sheet = await getDataFromSheets();
+  const sheet = await getDataFromRingCentral();
   return {
     props: {
       data: sheet.slice(0, sheet.length), // remove sheet header
