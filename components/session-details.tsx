@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { stripHtml } from "@/lib/utils";
 import { 
   Calendar, 
   Clock, 
@@ -119,12 +120,12 @@ export function SessionDetails({ session }: { session: SessionEvent }) {
                 </div>
                 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-                  {session.title}
+                  {stripHtml(session.title)}
                 </h1>
                 
                 {session.description && session.description !== session.title && (
                   <p className="text-xl text-muted-foreground leading-relaxed">
-                    {session.description}
+                    {stripHtml(session.description)}
                   </p>
                 )}
               </div>
@@ -177,14 +178,14 @@ export function SessionDetails({ session }: { session: SessionEvent }) {
                 <Card className="relative">
                   <CardContent className="p-0">
                     <Image
-                      src={session.image || '/placeholder.svg'}
-                      alt={session.title}
+                      src={session.image || '/nullEDGEicon.png'}
+                      alt={stripHtml(session.title)}
                       width={600}
                       height={400}
                       className="w-full h-auto rounded-lg object-cover"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
-                        target.src = '/placeholder.svg';
+                        target.src = '/nullEDGEicon.png';
                       }}
                     />
                   </CardContent>

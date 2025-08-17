@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Clock, MapPin } from "lucide-react"
+import { stripHtml } from "@/lib/utils"
 
 interface SessionEvent {
   title: string;
@@ -90,7 +91,7 @@ export function ScheduleSection({ sessionData }: { sessionData: SessionData }) {
             <h3 className="text-2xl font-bold mb-6">Day 1 - October 17</h3>
             <div className="grid gap-4">
               {scheduleData.map((event: SessionEvent, eventIndex: number) => (
-                <><Link
+                <Link
                   key={eventIndex}
                   href={`/sessions/${eventIndex + 1}`}>
                   <Card>
@@ -107,7 +108,7 @@ export function ScheduleSection({ sessionData }: { sessionData: SessionData }) {
                         </div>
                         <div className="flex-1 space-y-2">
                           <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-                            <h4 className="text-lg font-semibold">{event.title || event.description}</h4>
+                            <h4 className="text-lg font-semibold">{stripHtml(event.title || event.description)}</h4>
                             <Badge className={getTypeColor(event.type.toLowerCase())}>{event.type}</Badge>
                           </div>
                           <div className="flex flex-col sm:flex-row gap-4 text-sm text-muted-foreground">
@@ -121,7 +122,7 @@ export function ScheduleSection({ sessionData }: { sessionData: SessionData }) {
                           </div>
                           {event.description && event.description !== event.title && (
                             <p className="text-sm text-muted-foreground mt-2">
-                              {event.description}
+                              {stripHtml(event.description)}
                             </p>
                           )}
                           
@@ -131,8 +132,6 @@ export function ScheduleSection({ sessionData }: { sessionData: SessionData }) {
                     
                   </Card>
                 </Link>
-                 
-                </>
               ))}
             </div>
           </div>
