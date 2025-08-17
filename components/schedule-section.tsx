@@ -91,6 +91,7 @@ export function ScheduleSection({ sessionData }: { sessionData: SessionData }) {
             <h3 className="text-2xl font-bold mb-6">Day 1 - October 17</h3>
             <div className="grid gap-4">
               {scheduleData.map((event: SessionEvent, eventIndex: number) => (
+                <div key={eventIndex} className="group">
                 <Link
                   key={eventIndex}
                   href={`/sessions/${eventIndex + 1}`}>
@@ -132,6 +133,7 @@ export function ScheduleSection({ sessionData }: { sessionData: SessionData }) {
                     
                   </Card>
                 </Link>
+                </div>
               ))}
             </div>
           </div>
