@@ -38,11 +38,6 @@ export function Footer() {
                   Schedule
                 </Link>
               </li>
-              <li>
-                <Link href="/#tickets" className="hover:text-primary">
-                  Tickets
-                </Link>
-              </li>
             </ul>
           </div>
 
