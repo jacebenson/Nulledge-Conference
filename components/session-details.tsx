@@ -288,7 +288,8 @@ export function SessionDetails({ session }: { session: SessionEvent }) {
                 </Link>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <Link href="/#tickets" className="flex items-center gap-2">
+                {/**https://events.ringcentral.com/events/nulledge */}
+                <Link href="https://events.ringcentral.com/events/nulledge" className="flex items-center gap-2">
                   <Users className="h-5 w-5" />
                   Get Tickets
                 </Link>

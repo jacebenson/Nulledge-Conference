@@ -37,9 +37,6 @@ export function Header() {
           <Link href="/#schedule" className="text-sm font-medium hover:text-primary transition-colors">
             Schedule
           </Link>
-          <Link href="/#cfp" className="text-sm font-medium hover:text-primary transition-colors">
-            Call for Proposals
-          </Link>
         </nav>
 
         <div className="flex items-center space-x-4">
