@@ -93,14 +93,14 @@ export function Header() {
             >
               Schedule
             </Link>
-            <Link
+            {/* <Link
               href="/#cfp"
               className="block text-sm font-medium hover:text-primary transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Call for Proposals
-            </Link>
-            <Button className="mx-auto w-fit block">Register to Attend</Button>
+            </Link> */}
+            {/* <Button className="mx-auto w-fit block">Register to Attend</Button> */}
           </nav>
         </div>
       )}
