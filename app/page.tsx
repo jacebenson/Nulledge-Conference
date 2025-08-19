@@ -6,6 +6,7 @@ import { ScheduleSection } from "@/components/schedule-section"
 import { Footer } from "@/components/footer"
 import { jsonLD } from "./details.js"
 import { getDataFromRingCentral } from "./api/sheets.js"
+import { Timeline } from "@/components/timeline"
 
 
 export default async function HomePage() {
@@ -26,6 +27,8 @@ export default async function HomePage() {
         <AboutSection />
         <SpeakersSection sessionData={sessionData} />
         <ScheduleSection sessionData={sessionData} />
+        
+        <Timeline />
       </main>
       <Footer />
     </div>
