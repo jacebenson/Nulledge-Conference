@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Clock, MapPin } from "lucide-react"
-import { stripHtml } from "@/lib/utils"
+import { stripHtml, applyESTOffset } from "@/lib/utils"
 
 interface SessionEvent {
   title: string;
@@ -85,6 +85,12 @@ export function ScheduleSection({ sessionData }: { sessionData: SessionData }) {
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Join us for a day packed with inspiring talks, hands-on workshops, and networking opportunities.
           </p>
+          <details>
+            <summary>DEBUG</summary>
+            <code>
+              {JSON.stringify(scheduleData, null, 2)}
+            </code>
+          </details>
         </div>
         <div className="space-y-8">
           <div>
@@ -102,9 +108,9 @@ export function ScheduleSection({ sessionData }: { sessionData: SessionData }) {
                           <Clock className="h-4 w-4" />
                           <details className="inline">
                             <summary className="list-none text-sm">
-                              <span className="font-medium" title={`${event.startTime}-${event.endTime}`}>{event.startTime} EST</span>
+                              <span className="font-medium" title={`${applyESTOffset(event.startTime)}-${applyESTOffset(event.endTime)}`}>{applyESTOffset(event.startTime)}</span>
                             </summary>
-                            <span className="font-medium">{event.startTime} - {event.endTime}</span>
+                            <span className="font-medium">{applyESTOffset(event.startTime)} - {applyESTOffset(event.endTime)}</span>
                           </details>
                         </div>
                         <div className="flex-1 space-y-2">

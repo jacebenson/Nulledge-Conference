@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { stripHtml } from "@/lib/utils";
+import { stripHtml, applyESTOffset } from "@/lib/utils";
 import { 
   Calendar, 
   Clock, 
@@ -149,7 +149,7 @@ export function SessionDetails({ session }: { session: SessionEvent }) {
                     <div className="flex items-center gap-3">
                       <Clock className="h-5 w-5 text-primary" />
                       <div>
-                        <p className="font-medium">{session.startTime} - {session.endTime} EST</p>
+                        <p className="font-medium">{applyESTOffset(session.startTime)} - {applyESTOffset(session.endTime)}</p>
                         <p className="text-sm text-muted-foreground">Session Time</p>
                       </div>
                     </div>
