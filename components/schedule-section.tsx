@@ -85,12 +85,12 @@ export function ScheduleSection({ sessionData }: { sessionData: SessionData }) {
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Join us for a day packed with inspiring talks, hands-on workshops, and networking opportunities.
           </p>
-          <details>
+          {/* <details>
             <summary>DEBUG</summary>
             <code>
               {JSON.stringify(scheduleData, null, 2)}
             </code>
-          </details>
+          </details> */}
         </div>
         <div className="space-y-8">
           <div>
