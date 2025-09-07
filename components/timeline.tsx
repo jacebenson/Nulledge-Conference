@@ -113,7 +113,7 @@ export function Timeline() {
   });
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-background to-muted/30">
+    <section id="timeline" className="p-20 md:p-32 bg-muted/50">
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
