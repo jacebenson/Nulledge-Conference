@@ -165,7 +165,7 @@ export function Timeline() {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-16">
+        <div className="max-w-3xl mx-auto">
           <Card className="bg-primary/5 border-primary/20">
             <CardContent className="p-8">
               <div className="space-y-4">
