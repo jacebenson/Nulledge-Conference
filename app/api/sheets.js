@@ -41,6 +41,40 @@ export async function getDataFromSheets() {
     return [];
 }
 
+export async function getContributors() {
+    try {
+        const jwt = new google.auth.JWT({
+            email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
+            key: (process.env.GOOGLE_SHEETS_PRIVATE_KEY || "").replace(/\\n/g, "\n"),
+            scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"]
+        });
+
+        const sheets = google.sheets({ version: "v4", auth: jwt });
+        const response = await sheets.spreadsheets.values.get({
+            spreadsheetId: process.env.SPREADSHEET_ID,       // points to contributors sheet
+            range: process.env.SPREADSHEET_NAME,            // contributors sheet name/range
+        });
+
+        const rows = response.data.values;
+        if (!rows || rows.length === 0) return [];
+
+        // Adjust mapping to your contributors sheet columns
+        return rows.slice(1).map((row) => ({
+            name: row[0],
+            role: row[1],
+            bio: row[2],
+            photo: row[3],
+            website: row[4],
+            linkedin: row[5]
+        }));
+
+    } catch (err) {
+        console.error(err);
+        return [];
+    }
+}
+
+
 export async function getDataFromRingCentral() {
     try {
         const url = 'https://events.ringcentral.com/api/v2/schedules/public/nulledge/items';

@@ -8,3 +8,4 @@ export async function GET(request) {
     return Response.json({ error: 'Failed to load schedule.' }, { status: 500 });
   }
 }
+
