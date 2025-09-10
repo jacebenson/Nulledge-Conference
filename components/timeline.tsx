@@ -113,7 +113,7 @@ export function Timeline() {
   });
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-background to-muted/30">
+    <section id="timeline" className="p-20 md:p-32 bg-muted/50">
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
@@ -165,7 +165,7 @@ export function Timeline() {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-16">
+        <div className="max-w-3xl mx-auto">
           <Card className="bg-primary/5 border-primary/20">
             <CardContent className="p-8">
               <div className="space-y-4">
