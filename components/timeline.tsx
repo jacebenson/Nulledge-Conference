@@ -175,14 +175,14 @@ export function Timeline() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                   <a 
-                    href="/#schedule" 
+                    href="https://events.ringcentral.com/events/nulledge#schedule" 
                     className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
                   >
                     <Calendar className="h-5 w-5 mr-2" />
                     View Schedule
                   </a>
                   <a 
-                    href="/#tickets" 
+                    href="https://events.ringcentral.com/events/nulledge" 
                     className="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary rounded-md hover:bg-primary/10 transition-colors"
                   >
                     <Users className="h-5 w-5 mr-2" />
