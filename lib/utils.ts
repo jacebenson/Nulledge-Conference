@@ -75,3 +75,4 @@ export function applyESTOffset(timeString: string): string {
   const paddedHours = displayHours.toString();
   return `${paddedHours}:${minutes} ${newPeriod} EST`;
 }
+

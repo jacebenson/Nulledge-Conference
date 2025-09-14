@@ -58,7 +58,7 @@ export async function getContributors() {
         const rows = response.data.values;
         if (!rows || rows.length === 0) return [];
 
-        // Adjust mapping to your contributors sheet columns
+        //Adjust mapping to your contributors sheet columns
         return rows.slice(1).map((row) => ({
             name: row[0],
             role: row[1],
@@ -92,14 +92,18 @@ export async function getDataFromRingCentral() {
                 
                 // Format date and time strings
                 const dateStr = startDate.toLocaleDateString();
-                const startTimeStr = startDate.toLocaleTimeString('en-US', { 
+                const startTimeStr = startDate.toLocaleTimeString('en-us', { 
                     hour: 'numeric', 
                     minute: '2-digit',
+                    // timeZone: 'America/New_York',
+                    timeZoneName: 'short',
                     hour12: true 
                 });
-                const endTimeStr = endDate.toLocaleTimeString('en-US', { 
+                const endTimeStr = endDate.toLocaleTimeString('en-us', { 
                     hour: 'numeric', 
                     minute: '2-digit',
+                    // timeZone: 'America/New_York',
+                    timeZoneName: 'short',
                     hour12: true 
                 });
                 
