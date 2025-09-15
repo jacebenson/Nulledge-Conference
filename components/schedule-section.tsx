@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Clock, MapPin } from "lucide-react"
-import { stripHtml, applyESTOffset } from "@/lib/utils"
+import { stripHtml, convertUTCtoEST, convertUTCToLocalWithZone } from "@/lib/utils"
 
 interface SessionEvent {
   title: string;
@@ -108,9 +108,9 @@ export function ScheduleSection({ sessionData }: { sessionData: SessionData }) {
                           <Clock className="h-4 w-4" />
                           <details className="inline">
                             <summary className="list-none text-sm">
-                              <span className="font-medium" title={`${(event.startTime)}-${(event.endTime)}`}>{(event.startTime)}</span>
+                              <span className="font-medium" title={`${convertUTCToLocalWithZone(event.startTime)}-${convertUTCToLocalWithZone(event.endTime)}`}>{convertUTCToLocalWithZone(event.startTime)}</span>
                             </summary>
-                            <span className="font-medium">{(event.startTime)} - {(event.endTime)}</span>
+                            <span className="font-medium">{convertUTCToLocalWithZone(event.startTime)} - {convertUTCToLocalWithZone(event.endTime)}</span>
                           </details>
                         </div>
                         <div className="flex-1 space-y-2">

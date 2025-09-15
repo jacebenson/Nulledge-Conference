@@ -76,3 +76,24 @@ export function applyESTOffset(timeString: string): string {
   return `${paddedHours}:${minutes} ${newPeriod} EST`;
 }
 
+
+export function convertUTCToLocalWithZone(utcString: string): string {
+  if (!utcString) return '';
+
+  const date = new Date(utcString);
+
+  // Time part
+  const time = date.toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+  });
+
+  // Abbreviation (last token)
+  const tz = date.toLocaleTimeString('en-US', {
+    timeZoneName: 'short',
+  }).split(' ').pop();
+
+  return `${time} ${tz}`;
+}
+
