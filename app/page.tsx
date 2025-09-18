@@ -28,7 +28,7 @@ export default async function HomePage() {
         <AboutSection />
         <SpeakersSection sessionData={sessionData} />
         <ScheduleSection sessionData={sessionData} />
-        {/* <Contributors /> */}
+        <Contributors />
         
         <Timeline />
       </main>

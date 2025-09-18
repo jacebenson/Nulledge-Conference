@@ -50,7 +50,7 @@ export default function Contributors() {
         {contributors.map((contributor, idx) => (
           <div
             key={idx}
-            className="border rounded-lg p-4 flex flex-col items-center shadow-sm hover:shadow-md transition-shadow"
+            className="contributors border rounded-lg p-4 flex flex-col items-center shadow-sm hover:shadow-md transition-shadow"
           >
             {contributor.photo && (
               <img
