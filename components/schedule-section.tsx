@@ -100,7 +100,7 @@ export function ScheduleSection({ sessionData }: { sessionData: SessionData }) {
                 <div key={eventIndex} className="group">
                 <Link
                   key={eventIndex}
-                  href={`/sessions/${eventIndex + 1}`}>
+                  href={`https://events.ringcentral.com/events/nulledge#schedule`}>
                   <Card>
                     <CardContent className="p-6">
                       <div className="flex flex-col md:flex-row md:items-center gap-4">

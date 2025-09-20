@@ -1,6 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Code, Lightbulb, Network, Rocket, Globe } from "lucide-react"
 import { jsonLD } from "@/app/details"
+import Testimonials from "./testimonials"
+
+
+
 export function AboutSection() {
   let loadedProperties = jsonLD.additionalProperty.filter(function (property) {
     if (property.additionalType == 'feature') {
@@ -20,7 +24,7 @@ export function AboutSection() {
 
   return (
     <section id="about" className="p-20 md:p-32">
-      <div className="container">
+      <div className="container mb-16">
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-3xl md:text-5xl font-bold">About nullEDGE</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -42,6 +46,8 @@ export function AboutSection() {
           ))}
         </div>
       </div>
+      <Testimonials />
     </section>
+    
   )
 }

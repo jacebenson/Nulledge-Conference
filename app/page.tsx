@@ -10,6 +10,7 @@ import { Timeline } from "@/components/timeline"
 import Contributors from "@/components/contributors"
 
 
+
 export default async function HomePage() {
   var sessionData = await getSheetData()
   return (
@@ -29,7 +30,6 @@ export default async function HomePage() {
         <SpeakersSection sessionData={sessionData} />
         <ScheduleSection sessionData={sessionData} />
         <Contributors />
-        
         <Timeline />
       </main>
       <Footer />

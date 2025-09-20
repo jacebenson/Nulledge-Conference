@@ -74,6 +74,36 @@ export async function getContributors() {
     }
 }
 
+export async function getTestimonials() {
+    try {
+        const jwt = new google.auth.JWT({
+            email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
+            key: (process.env.GOOGLE_SHEETS_PRIVATE_KEY || "").replace(/\\n/g, "\n"),
+            scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"]
+        });
+
+        const sheets = google.sheets({ version: "v4", auth: jwt });
+        const response = await sheets.spreadsheets.values.get({
+            spreadsheetId: process.env.TESTIMONIALS_ID,       // points to contributors sheet
+            range: process.env.TESTIMONIALS_SHEET_NAME,            // contributors sheet name/range
+        });
+
+        const rows = response.data.values;
+        if (!rows || rows.length === 0) return [];
+
+        //Adjust mapping to your contributors sheet columns
+        return rows.slice(1).map((row) => ({
+            who: row[0],
+            what: row[1],
+            where: row[2],
+        }));
+
+    } catch (err) {
+        console.error(err);
+        return [];
+    }
+}
+
 
 export async function getDataFromRingCentral() {
     try {
@@ -122,7 +152,8 @@ export async function getDataFromRingCentral() {
                     speakersEmployers: item.speakers ? item.speakers.map(s => s.headline || '').join(', ') : '',
                     speakersEmployerURLs: item.speakers ? item.speakers.map(s => s.linkedin || '').join(', ') : '',
                     speakersEmployerImages: item.speakers ? item.speakers.map(s => s.thumb_picture_url || '').join(', ') : '',
-                    featured: item.tags && item.tags.some(tag => tag.name === 'Keynote') || false
+                    featured: item.tags && item.tags.some(tag => tag.name === 'Keynote') || false,
+                    url: `https://events.ringcentral.com/event/${item.id}`,
                 };
             });
         }
