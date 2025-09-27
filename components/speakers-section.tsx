@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -7,14 +7,35 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink } from "lucide-react";
 
+// ✅ Simple hook to track screen size
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  return isMobile;
+}
+
 export function SpeakersSection() {
   const [featuredSpeakers, setFeaturedSpeakers] = useState<any[]>([]);
   const [currentPage, setCurrentPage] = useState(0);
+  const isMobile = useIsMobile();
+
+  // ✅ dynamic page size
+  const pageSize = isMobile ? 1 : 4;
+  const totalPages = Math.ceil(featuredSpeakers.length / pageSize);
 
   useEffect(() => {
     const fetchSpeakers = async () => {
       try {
-        const res = await fetch("https://events.ringcentral.com/api/v2/schedules/public/nulledge/items");
+        const res = await fetch(
+          "https://events.ringcentral.com/api/v2/schedules/public/nulledge/items"
+        );
         const data = await res.json();
 
         const seen = new Set();
@@ -23,7 +44,8 @@ export function SpeakersSection() {
         data.items.forEach((item: any) => {
           if (item.speakers && item.speakers.length > 0) {
             item.speakers.forEach((speaker: any) => {
-              const uniqueKey = speaker.name + (speaker.linkedin || speaker.website || "");
+              const uniqueKey =
+                speaker.name + (speaker.linkedin || speaker.website || "");
               if (!seen.has(uniqueKey)) {
                 seen.add(uniqueKey);
                 speakers.push({
@@ -49,10 +71,7 @@ export function SpeakersSection() {
     return () => clearInterval(interval);
   }, []);
 
-  const pageSize = 4;
-  const totalPages = Math.ceil(featuredSpeakers.length / pageSize);
-
-  // Auto-scroll every 5 seconds
+  // ✅ Auto-scroll (always, but useful for mobile slideshow feel)
   useEffect(() => {
     if (featuredSpeakers.length === 0) return;
 
@@ -63,7 +82,7 @@ export function SpeakersSection() {
     return () => clearInterval(interval);
   }, [featuredSpeakers, totalPages]);
 
-  // Slice based on page number (no duplicates!)
+  // ✅ Slice based on page number
   const start = currentPage * pageSize;
   const displaySpeakers = featuredSpeakers.slice(start, start + pageSize);
 
@@ -72,14 +91,20 @@ export function SpeakersSection() {
       <div className="container text-center space-y-4 mb-16">
         <h2 className="text-3xl md:text-5xl font-bold">Featured Speakers</h2>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          Learn from industry experts and thought leaders who are driving innovation and shaping the future of technology.
+          Learn from industry experts and thought leaders who are driving
+          innovation and shaping the future of technology.
         </p>
       </div>
 
       {/* Carousel */}
-      <div className="flex justify-center gap-6 transition-transform duration-700">
+      <div className="flex justify-center gap-6 transition-transform duration-700 overflow-hidden">
         {displaySpeakers.map((speaker, index) => (
-          <Card key={start + index} className="overflow-hidden w-80 flex-shrink-0">
+          <Card
+            key={start + index}
+            className={`overflow-hidden ${
+              isMobile ? "w-full" : "w-80"
+            } flex-shrink-0`}
+          >
             <CardContent className="p-0">
               <Image
                 src={speaker.image}
