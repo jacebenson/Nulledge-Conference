@@ -38,6 +38,11 @@ export function Footer() {
                   Schedule
                 </Link>
               </li>
+              <li>
+                <Link href="/social" className="text-sm font-medium hover:text-primary transition-colors">
+            Social Images
+          </Link>
+              </li>
             </ul>
           </div>
 
