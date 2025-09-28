@@ -87,7 +87,7 @@ export function SpeakersSection() {
   const displaySpeakers = featuredSpeakers.slice(start, start + pageSize);
 
   return (
-    <section id="speakers" className="p-20 md:p-32 bg-muted/50">
+    <section id="speakers" className="p-20 md:p-24 bg-muted/50">
       <div className="container text-center space-y-4 mb-16">
         <h2 className="text-3xl md:text-5xl font-bold">Featured Speakers</h2>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
