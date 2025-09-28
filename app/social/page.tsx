@@ -118,7 +118,7 @@ export default async function SocialPage() {
                         target="_blank"
                         className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm font-medium transition-colors text-center"
                       >
-                        OG Image (1500×625)
+                        Banner (1500×625)
                       </Link>
                       <Link
                         href={`/social/${titleSlug}/story-image`}
