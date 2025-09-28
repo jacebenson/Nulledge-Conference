@@ -56,11 +56,19 @@ export async function GET(
     
     // Find session by title (URL decoded and matched)
     const decodedTitle = decodeURIComponent(title).replace(/-/g, ' ')
+    console.log('Looking for session with title:', decodedTitle)
     const sessionData = sheet.filter((event: any) => {
       const sessionTitle = event.title.toLowerCase()
       const searchTitle = decodedTitle.toLowerCase()
-      return sessionTitle.includes(searchTitle) || searchTitle.includes(sessionTitle)
+      // Try exact match first, then contains match
+      return sessionTitle === searchTitle || 
+             sessionTitle.includes(searchTitle) || 
+             searchTitle.includes(sessionTitle) ||
+             // Try word-by-word matching for better results
+             searchTitle.split(' ').every(word => sessionTitle.includes(word))
     })
+    
+    console.log(`Found ${sessionData.length} matching sessions for "${decodedTitle}"`)
     
     if (sessionData.length === 0) {
       return new Response('Session not found', { status: 404 })
