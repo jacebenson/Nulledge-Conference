@@ -1,14 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
 import Image from "next/image";
+import ShowReplaysButton from "./show-replays-button";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showReplays, setShowReplays] = useState(false);
+
+  useEffect(() => {
+    const cutoff = new Date(2025, 9, 18);
+    setShowReplays(new Date() >= cutoff);
+  }, []);
 
   return (
     <header className="px-4 sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -42,15 +49,19 @@ export function Header() {
         <div className="flex items-center space-x-4">
           <ModeToggle />
           {/* <Button className="hidden md:inline-flex">Register Now</Button> */}
-          <Button asChild size="lg" className="text-lg px-2">
-            <a
-              href="https://events.ringcentral.com/events/nulledge"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Register to Attend
-            </a>
-          </Button>
+          {showReplays ? (
+            <ShowReplaysButton />
+          ) : (
+            <Button asChild size="lg" className="text-lg px-2">
+              <a
+                href="https://events.ringcentral.com/events/nulledge"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Register to Attend
+              </a>
+            </Button>
+          )}
 
           {/* Mobile Menu Button */}
           <Button
