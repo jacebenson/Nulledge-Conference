@@ -37,28 +37,44 @@ export function ScheduleSection({ sessionData }: { sessionData: SessionData }) {
   );
 
   // Poll for updates every 30 seconds (adjust as needed)
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const res = await fetch("/api/schedule");
+  //       if (res.ok) {
+  //         const data: SessionEvent[] = await res.json();
+  //         const filteredData = data;
+
+  //         // Compare new data with current state
+  //         if (JSON.stringify(filteredData) !== JSON.stringify(scheduleData)) {
+  //           setScheduleData(filteredData);
+  //         }
+  //       }
+  //     } catch (err) {
+  //       // Optionally handle error
+  //     }
+  //   };
+
+  //   fetchData(); // Fetch immediately on mount
+  //   const interval = setInterval(fetchData, 10000);
+  //   return () => clearInterval(interval);
+  // }, [scheduleData]);
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch("/api/schedule");
-        if (res.ok) {
-          const data: SessionEvent[] = await res.json();
-          const filteredData = data;
-
-          // Compare new data with current state
-          if (JSON.stringify(filteredData) !== JSON.stringify(scheduleData)) {
-            setScheduleData(filteredData);
-          }
-        }
-      } catch (err) {
-        // Optionally handle error
+  const fetchData = async () => {
+    try {
+      const res = await fetch("/api/schedule");
+      if (res.ok) {
+        const data: SessionEvent[] = await res.json();
+        setScheduleData(data);
       }
-    };
+    } catch (err) {
+      console.error("Error fetching schedule:", err);
+    }
+  };
 
-    fetchData(); // Fetch immediately on mount
-    const interval = setInterval(fetchData, 10000);
-    return () => clearInterval(interval);
-  }, [scheduleData]);
+  fetchData(); // Run once on mount
+}, []); // Empty dependency array = run once
+
 
   const getTypeColor = (type: string) => {
     switch (type) {

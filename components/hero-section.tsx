@@ -9,33 +9,47 @@ export function HeroSection() {
     weekday: "long",
     year: "numeric",
     month: "long",
-    day: "numeric"
-  })
+    day: "numeric",
+  });
   return (
     <section className="relative p-20 md:p-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
       <div className="container relative z-10">
         <div className="text-center space-y-8">
           <div className="space-y-4">
-			<div className="flex justify-center">
-              <Image
-                src="/nullEDGElogo.jpg"
-                alt="nullEDGE Logo"
-                width={600}
-                height={150}
-              />
+            <div className="flex justify-center relative">
+              <div className="relative z-10">
+                {/* <span
+                aria-hidden
+                className="pointer-events-none absolute inset-0 flex items-center justify-center text-[170px] md:text-[220px] leading-none font-extrabold text-[#F0E655] opacity-1 -z-10"
+              >
+                Ⅱ
+              </span> */}
+                <Image
+                  src="/nullEDGElogo.jpg"
+                  alt="nullEDGE Logo"
+                  width={600}
+                  height={150}
+                />
+              </div>
+
+              {/* Decorative large roman numeral behind the logo */}
+              
             </div>
+            
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-			{/*{jsonLD.name}*/}
-              <span className="block text-primary">Conference {date.getFullYear()}</span>
+              {/*{jsonLD.name}*/}
+              <span className="block text-primary">
+                Conference {date.getFullYear()}
+              </span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
               Join the leading minds in{" "}
               <span className="underline decoration-dotted cursor-pointer relative group">
-              ServiceNow
-              <span className="absolute left-1/2 -translate-x-1/2 mt-2 w-max px-3 py-2 rounded bg-background border text-sm text-foreground shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-               nullEDGE is not affiliated with nor sponsored by ServiceNow.
-              </span>
+                ServiceNow
+                <span className="absolute left-1/2 -translate-x-1/2 mt-2 w-max px-3 py-2 rounded bg-background border text-sm text-foreground shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
+                  nullEDGE is not affiliated with nor sponsored by ServiceNow.
+                </span>
               </span>{" "}
               for a day of innovation, networking, and cutting-edge insights.
             </p>
@@ -58,7 +72,9 @@ export function HeroSection() {
 
           <div className="space-y-6">
             <div>
-              <h2 className="text-2xl md:text-3xl font-semibold mb-6">Event Starts In</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-6">
+                Event Starts In
+              </h2>
               <CountdownTimer DateTime={date} />
             </div>
 
@@ -76,5 +92,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
