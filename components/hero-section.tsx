@@ -73,9 +73,9 @@ export function HeroSection() {
           <div className="space-y-6">
             <div>
               <h2 className="text-2xl md:text-3xl font-semibold mb-6">
-                Event Starts In
+                Event Starts TODAY!!!!
               </h2>
-              <CountdownTimer DateTime={date} />
+              {/* <CountdownTimer DateTime={date} /> */}
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
