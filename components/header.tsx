@@ -19,7 +19,7 @@ export function Header() {
 
   return (
     <header className="px-4 sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex h-16 items-center justify-between max-w-full">
         <Link href="/" className="flex items-center space-x-2">
           {/*<div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">*/}
           <div>
@@ -44,6 +44,9 @@ export function Header() {
           <Link href="/#schedule" className="text-sm font-medium hover:text-primary transition-colors">
             Schedule
           </Link>
+          {/* <Link href="/conference/2025" className="text-sm font-medium hover:text-primary transition-colors">
+            2025
+          </Link> */}
         </nav>
 
         <div className="flex items-center space-x-4">
@@ -104,6 +107,13 @@ export function Header() {
             >
               Schedule
             </Link>
+            {/* <Link
+              href="/conference/2025"
+              className="block text-sm font-medium hover:text-primary transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              2025
+            </Link> */}
             {/* <Link
               href="/#cfp"
               className="block text-sm font-medium hover:text-primary transition-colors"
