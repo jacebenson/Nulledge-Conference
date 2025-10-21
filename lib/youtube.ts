@@ -85,4 +85,60 @@ export async function fetchChannelVideos(channelHandleOrUrl: string, max = 12): 
   }
 }
 
+/**
+ * Fetch videos from a YouTube playlist using public RSS feeds.
+ * Accepts either a playlist ID like PLDddkCJJW5hOuBGkcABgJ_FOrnJ1xEwEH or a full YouTube playlist URL.
+ * This implementation uses simple text parsing so we don't need extra dependencies.
+ */
+export async function fetchPlaylistVideos(playlistIdOrUrl: string, max = 12): Promise<Video[]> {
+  // Extract playlist ID from URL or use directly if it's already an ID
+  let playlistId: string;
+
+  if (playlistIdOrUrl.startsWith('http')) {
+    // Extract playlist ID from URL like https://www.youtube.com/playlist?list=PLDddkCJJW5hOuBGkcABgJ_FOrnJ1xEwEH
+    const url = new URL(playlistIdOrUrl);
+    const listParam = url.searchParams.get('list');
+    if (!listParam) {
+      console.error('No playlist ID found in URL');
+      return [];
+    }
+    playlistId = listParam;
+  } else {
+    // Assume it's already a playlist ID
+    playlistId = playlistIdOrUrl;
+  }
+
+  // YouTube provides an RSS feed at https://www.youtube.com/feeds/videos.xml?playlist_id=PLAYLIST_ID
+  const feedUrl = `https://www.youtube.com/feeds/videos.xml?playlist_id=${playlistId}`;
+
+  try {
+    const res = await fetch(feedUrl, { headers: { 'User-Agent': 'nulledge-site/1.0' } });
+    if (!res.ok) {
+      console.error(`Failed to fetch playlist RSS feed: ${res.status}`);
+      return [];
+    }
+    const xml = await res.text();
+
+    // Very small and forgiving XML parsing to avoid bringing in a dependency.
+    // Split entries by <entry>...</entry>
+    const entryMatches = Array.from(xml.matchAll(/<entry[\s\S]*?<\/entry>/g));
+    const items = entryMatches.slice(0, max).map((m) => m[0]);
+
+    const videos: Video[] = items.map((entry) => {
+      const idMatch = entry.match(/<yt:videoId>(.*?)<\/yt:videoId>/);
+      const titleMatch = entry.match(/<title>([\s\S]*?)<\/title>/);
+      const pubMatch = entry.match(/<published>(.*?)<\/published>/);
+      const id = idMatch ? idMatch[1] : '';
+      const title = titleMatch ? titleMatch[1].replace(/\n+/g, ' ').trim() : 'Video';
+      const published = pubMatch ? pubMatch[1] : undefined;
+      return { id, title, published };
+    }).filter((v) => v.id);
+
+    return videos;
+  } catch (e) {
+    console.error('Error fetching playlist videos:', e);
+    return [];
+  }
+}
+
 export default fetchChannelVideos;
