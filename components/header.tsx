@@ -44,9 +44,9 @@ export function Header() {
           <Link href="/#schedule" className="text-sm font-medium hover:text-primary transition-colors">
             Schedule
           </Link>
-          {/* <Link href="/conference/2025" className="text-sm font-medium hover:text-primary transition-colors">
+          <Link href="/conference/2025" className="text-sm font-medium hover:text-primary transition-colors">
             2025
-          </Link> */}
+          </Link>
         </nav>
 
         <div className="flex items-center space-x-4">
@@ -107,13 +107,13 @@ export function Header() {
             >
               Schedule
             </Link>
-            {/* <Link
+            <Link
               href="/conference/2025"
               className="block text-sm font-medium hover:text-primary transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               2025
-            </Link> */}
+            </Link>
             {/* <Link
               href="/#cfp"
               className="block text-sm font-medium hover:text-primary transition-colors"

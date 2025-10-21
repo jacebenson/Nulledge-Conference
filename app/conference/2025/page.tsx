@@ -125,15 +125,6 @@ export default async function Conference2025Page() {
             <p className="text-sm text-gray-400 mb-4">We'd love to hear your thoughts on the conference. Submit feedback, suggestions or ideas for next year.</p>
             <Link href="/feedback" className="inline-block px-4 py-2 bg-primary text-black rounded-lg">Leave Feedback</Link>
           </div>
-        </section>
-
-        {/* Feedback and Resources */}
-        <section className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-card border rounded-lg p-6">
-            <h2 className="text-xl font-semibold mb-2">Share Feedback</h2>
-            <p className="text-sm text-gray-400 mb-4">We'd love to hear your thoughts on the conference. Submit feedback, suggestions or ideas for next year.</p>
-            <Link href="/feedback" className="inline-block px-4 py-2 bg-primary text-black rounded-lg">Leave Feedback</Link>
-          </div>
 
           <div className="bg-card border rounded-lg p-6">
             <h2 className="text-xl font-semibold mb-2">Resources & Speakers</h2>
