@@ -5,16 +5,44 @@ import { recordedSessions } from "./recordedSessions"
 import YouTubeEmbed from "@/components/ui/YouTubeEmbed"
 import { expoBooths } from "./expoBooths"
 import ExpoBooth from "@/components/ui/expobooth"
-
+import fs from "fs"
+import path from "path"
 export const metadata = {
   title: 'nullEDGE 2025 — Retrospective',
   description: 'Retrospective for the nullEDGE 2025 conference: session videos, feedback and resources',
 }
-
+export const getChat = (path: string) => {
+  // read the chat csv file located at the given path and return its contents
+  const chatFilePath = path.resolve(__dirname, path);
+  // its a CSV file, so read as text
+  // its headers are
+  // Time,Email,First Name,Last Name,Headline,Country/Region,Ticket Type,Level,Text,Reaction Count,Schedule Segment,Bio,Website,Linkedin,X,Custom Form Completed,Company/Organization,What is your primary role?,How do you engage with ServiceNow?,LinkedIn profile
+  // we only care about time, first name, last name, and text
+  const chatData = fs.readFileSync(chatFilePath, "utf-8");
+  const chatLines = chatData.split("\n").slice(1); // skip header
+  return chatLines.map(line => {
+    const [time, email, firstName, lastName, headline, country, ticketType, level, text] = line.split(",");
+    return { time, firstName, lastName, text };
+  });
+}
 export default async function Conference2025Page() {
   // Use the local recorded sessions data
   const videos = recordedSessions;
   const usingFallback = false;
+
+  // Helper function to format time in user's local timezone
+  const formatLocalTime = (isoString: string) => {
+    try {
+      const date = new Date(isoString);
+      return date.toLocaleTimeString('en-US', { 
+        hour: 'numeric', 
+        minute: '2-digit',
+        hour12: true 
+      });
+    } catch {
+      return isoString; // Fallback to original string if parsing fails
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -98,7 +126,7 @@ export default async function Conference2025Page() {
                       {/* Time and Duration - shared for all sessions at this time */}
                       <div className="flex-shrink-0 w-24 text-right">
                         <div className="text-sm font-medium text-primary">
-                          {time}
+                          {formatLocalTime(time)}
                         </div>
                         <div className="text-xs text-muted-foreground">
                           {sessions[0].duration} min
@@ -124,8 +152,9 @@ export default async function Conference2025Page() {
                                 <YouTubeEmbed
                                   videoId={sessions[0].id}
                                   title={sessions[0].title}
-                                  published={sessions[0].published}
+                                  published={formatLocalTime(sessions[0].published)}
                                   speakers={sessions[0].speakers.toString()}
+                                  chatFile={sessions[0].chat}
                                 />
                               ) : (
                                 <div className="text-center text-lg">
@@ -156,8 +185,9 @@ export default async function Conference2025Page() {
                                       <YouTubeEmbed
                                         videoId={session.id}
                                         title={session.title}
-                                        published={session.published}
+                                        published={formatLocalTime(session.published)}
                                         speakers={session.speakers.toString()}
+                                        chatFile={session.chat}
                                       />
                                     ) : (
                                       <div>

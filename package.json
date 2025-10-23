@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "download-speakers": "node download-speakers.mjs"
+    "download-speakers": "node download-speakers.mjs",
+    "sanitize-chat": "node sanitize-chat.mjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "1.2.2",
