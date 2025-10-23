@@ -1,12 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { SessionChat } from "@/components/session-chat";
 
 interface YouTubeEmbedProps {
   videoId: string;
   title: string;
   published?: string;
   speakers?: string;
+  chatFile?: string;
 }
 
 export default function YouTubeEmbed({
@@ -14,6 +16,7 @@ export default function YouTubeEmbed({
   title,
   published,
   speakers,
+  chatFile,
 }: YouTubeEmbedProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -99,7 +102,7 @@ export default function YouTubeEmbed({
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75">
           {/* Modal Content */}
-          <div className="relative w-full max-w-6xl bg-background rounded-lg overflow-hidden">
+          <div className="relative w-full max-w-6xl h-[90vh] bg-background rounded-lg overflow-hidden flex flex-col">
             {/* Close Button - positioned outside the video area */}
             <button
               onClick={closeModal}
@@ -121,7 +124,7 @@ export default function YouTubeEmbed({
             </button>
 
             {/* Video Container */}
-            <div className="aspect-video bg-black">
+            <div className="aspect-video bg-black flex-shrink-0">
               <iframe
                 src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
                 title={title}
@@ -132,14 +135,26 @@ export default function YouTubeEmbed({
               />
             </div>
 
-            {/* Modal Footer */}
-            <div className="p-4 bg-card">
+            {/* Video Info */}
+            <div className="p-4 bg-card border-t flex-shrink-0">
               <h2 className="text-lg font-medium">{title}</h2>
-              {published && (
-                <p className="text-sm text-muted-foreground mt-1">
-                  {published}
-                </p>
-              )}
+              <div className="flex justify-between mt-1">
+                {speakers && (
+                  <p className="text-sm text-muted-foreground">
+                    {speakers}
+                  </p>
+                )}
+                {published && (
+                  <p className="text-sm text-muted-foreground">
+                    {published}
+                  </p>
+                )}
+              </div>
+            </div>
+
+            {/* Chat Section - Below Video */}
+            <div className="flex-1 border-t overflow-hidden">
+              <SessionChat chatFile={chatFile} sessionTitle={title} className="h-full border-0 rounded-none" />
             </div>
           </div>
 

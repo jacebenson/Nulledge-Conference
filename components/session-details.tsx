@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { stripHtml, applyESTOffset } from "@/lib/utils";
+import { SessionChat } from "@/components/session-chat";
 import { 
   Calendar, 
   Clock, 
