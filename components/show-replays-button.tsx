@@ -17,7 +17,7 @@ export default function ShowReplaysButton() {
   return (
    <Button asChild size="lg" className="text-lg px-2">
               <a
-                href="https://www.youtube.com/@thenulledge"
+                href="/conference/2025"
                 target="_blank"
                 rel="noopener noreferrer"
               >
