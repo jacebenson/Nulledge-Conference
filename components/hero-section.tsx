@@ -73,7 +73,7 @@ export function HeroSection() {
           <div className="space-y-6">
             <div>
               <h2 className="text-2xl md:text-3xl font-semibold mb-6">
-                Event Starts TODAY!!!!
+                "See you next October..<s>maybe</s> <s>probably</s> definitely sooner"
               </h2>
               {/* <CountdownTimer DateTime={date} /> */}
             </div>
