@@ -58,7 +58,8 @@ export function HeroSection() {
           <div className="flex flex-wrap justify-center gap-6 text-sm md:text-base">
             <div className="flex items-center gap-2">
               <Calendar className="h-5 w-5 text-primary" />
-              <span>{when}</span>
+              {/* <span>{when}</span> */}
+              <span>SOON</span>
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="h-5 w-5 text-primary" />
